@@ -1,0 +1,65 @@
+@import url(../carousels/styles.css);
+
+/* 9:16 stage. Content stays inside the TikTok/Reels safe zone (clear of top tabs,
+   right action rail and bottom caption). */
+.stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+.stage::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: var(--noise-opacity); z-index: 0; filter: invert(var(--noise-invert));
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+.zone { position: absolute; top: 220px; left: 76px; right: 150px; bottom: 480px; z-index: 1; }
+.abs { position: absolute; }
+.vh1 { font-family: var(--f-head); font-weight: var(--head-weight); letter-spacing: var(--head-track); font-variation-settings: var(--head-vs); font-stretch: var(--head-stretch); color: var(--text); font-size: 92px; line-height: 0.98; text-wrap: balance; }
+.vh1 em { font-style: normal; color: var(--green); }
+.vsub { font-size: 40px; line-height: 1.35; color: var(--body); }
+.vlabel { font-family: var(--f-mono); font-size: 28px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--green); }
+.endcard { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 34px; }
+.endcard .logo { font-size: 72px; }
+.endcard .logo i { width: 54px; height: 12px; margin: 0 12px; }
+.endcard .vh1 { font-size: 96px; }
+.endcard .handle { font-family: var(--f-mono); font-size: 30px; color: var(--muted); }
+
+/* ---------- graph-paper theme for the 2x2 ---------- */
+.theme-grid {
+  --bg: #f6f5ef; --surface: #ffffff; --surface-2: #eceae1; --line: #d9d5c8;
+  --text: #121212; --body: #34322c; --muted: #77736a; --dim: #aaa597;
+  --green: #0b7d3e; --green-ink: #ffffff; --green-soft: rgba(57,255,136,.6); --green-line: rgba(11,125,62,.4);
+  --logo-bar: #22d16c; --noise-invert: 1; --noise-opacity: 0.04;
+  --head-weight: 800;
+}
+.theme-grid .stage {
+  background-color: #f6f5ef;
+  background-image: linear-gradient(#e6e3d8 2px, transparent 2px), linear-gradient(90deg, #e6e3d8 2px, transparent 2px);
+  background-size: 54px 54px; background-position: -2px -2px;
+}
+.theme-grid .vh1 em { color: var(--text); background: linear-gradient(transparent 55%, rgba(57,255,136,.8) 55%, rgba(57,255,136,.8) 92%, transparent 92%); padding: 0 6px; }
+
+/* 2x2 matrix */
+.matrix { position: absolute; left: 0; right: 0; top: 300px; height: 860px; }
+.matrix .ax { position: absolute; background: var(--text); }
+.matrix .ax.x { left: 0; right: 0; top: 50%; height: 5px; margin-top: -2px; transform-origin: left center; }
+.matrix .ax.y { top: 0; bottom: 0; left: 50%; width: 5px; margin-left: -2px; transform-origin: center top; }
+.matrix .ax.x::after { content: ''; position: absolute; right: -4px; top: -11px; border-left: 22px solid var(--text); border-top: 13px solid transparent; border-bottom: 13px solid transparent; }
+.matrix .ax.y::after { content: ''; position: absolute; bottom: -4px; left: -10px; border-top: 22px solid var(--text); border-left: 12px solid transparent; border-right: 12px solid transparent; }
+.matrix .al { position: absolute; font-family: var(--f-mono); font-size: 25px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); background: var(--bg); padding: 4px 10px; }
+.matrix .q { position: absolute; width: 400px; }
+.matrix .q .dot { width: 30px; height: 30px; border-radius: 50%; background: #39ff88; border: 5px solid var(--text); margin-bottom: 18px; }
+.matrix .q .nm { font-family: var(--f-head); font-weight: 800; font-size: 46px; line-height: 1.04; letter-spacing: -0.02em; color: var(--text); }
+.matrix .q .sm { font-family: var(--f-mono); font-size: 28px; color: var(--muted); margin-top: 12px; line-height: 1.35; }
+
+/* contacts list -> clocks */
+.clist { position: absolute; left: 0; right: 0; top: 330px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 34px; padding: 18px 34px; }
+.clist .row { position: relative; display: flex; justify-content: space-between; align-items: center; height: 92px; border-top: 1.5px solid var(--line); }
+.clist .row:first-child { border-top: 0; }
+.clist .nm { font-size: 38px; font-weight: 600; color: var(--text); }
+.clist .rt { position: absolute; right: 0; top: 0; bottom: 0; display: flex; align-items: center; gap: 16px; font-family: var(--f-mono); font-size: 30px; color: var(--muted); }
+.clist .rt .st { width: 18px; height: 18px; border-radius: 50%; }
+.clist .rt.on { color: var(--text); }
+.clist .rt.on .st { background: var(--green); box-shadow: 0 0 0 6px var(--green-soft); }
+.clist .rt.off .st { background: transparent; border: 3px solid var(--dim); }
+.clist .rt.off { color: var(--dim); }
+
+/* conference math */
+.big { font-family: var(--f-head); font-weight: 800; font-size: 210px; line-height: 0.9; letter-spacing: -0.04em; color: var(--text); }
+.big.g { color: var(--green); }
+.cap { font-family: var(--f-mono); font-size: 34px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+.typing::after { content: ''; display: inline-block; width: 4px; height: 1.05em; background: currentColor; margin-left: 4px; vertical-align: -0.15em; }
+.vbubble { font-size: 46px; line-height: 1.32; padding: 34px 42px; border-radius: 50px; border-bottom-right-radius: 14px; background: var(--bubble-out-bg, var(--green)); color: var(--bubble-out-ink, var(--green-ink)); font-weight: 500; min-height: 140px; }
