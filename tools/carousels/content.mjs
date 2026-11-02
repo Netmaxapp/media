@@ -327,7 +327,7 @@ const c4 = (() => {
       ...texts.map((x, i) => ({
         label: String(i + 1).padStart(2, '0'), h: x.h, hTag: 'h1', body: x.b, order: 'sandwich',
         visual: C.thread(x.t),
-        alt: `${x.h}. Text: “${x.t[0].text}” ${x.b}`,
+        alt: `Text: “${x.t[0].text}”`,
       })),
       {
         cta: true, h: 'Then don’t let it be another year',
