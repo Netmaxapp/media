@@ -19,7 +19,10 @@ export const clock = (rows, compact = false) => `<div class="clock${compact ? ' 
     <div class="st">${r.awake ? 'awake' : 'asleep'}</div>
   </div>`).join('')}</div>`;
 
-export const thread = (items) => `<div class="thread${items.length === 1 && !items[0].photo ? ' hero' : ''}">${items.map((it) => {
+const isBubble = (it) => !it.tag && !it.meta && !it.stamp && !it.receipt;
+export const thread = (items) => `<div class="thread${items.filter(isBubble).length === 1 && !items.some((i) => i.photo) ? ' hero' : ''}">${items.map((it) => {
+  if (it.stamp) return `<div class="stamp">${md(it.stamp)}</div>`;
+  if (it.receipt) return `<div class="receipt">${esc(it.receipt)}</div>`;
   if (it.tag) return `<div class="tag${it.g ? ' g' : ''} ${it.side === 'l' ? 'l' : 'r'}">${md(it.tag)}</div>`;
   if (it.meta) return `<div class="meta ${it.side || 'r'}">${md(it.meta)}</div>`;
   if (it.photo) return `<div class="bubble out photo"><div class="ph">${esc(it.photo)}</div><div class="cap">${md(it.text)}</div></div>`;
@@ -63,10 +66,10 @@ export const timeline = (steps, active = -1, opts = {}) => `<div class="tl">${st
 
 export const checklist = (items) => `<div class="check">${items.map((it) => `<div class="i"><span class="box"></span><span>${md(it.text)}${it.sub ? `<small>${esc(it.sub)}</small>` : ''}</span></div>`).join('')}</div>`;
 
-const TIER_BG = { S: 'var(--green)', A: 'rgba(57,255,136,.78)', B: 'rgba(57,255,136,.58)', C: 'rgba(57,255,136,.4)', D: 'rgba(57,255,136,.25)', F: '#2a332d' };
+const TIER_BG = Object.fromEntries(['S', 'A', 'B', 'C', 'D', 'F'].map((k) => [k, k === 'S' ? 'var(--tier-S, var(--green))' : `var(--tier-${k})`]));
 export const tierChart = (tiers, { hl = null, compact = false } = {}) => `<div class="tiers">${tiers.map((t) => `
   <div class="t${hl && hl !== t.k ? ' mute' : ''}${hl === t.k ? ' hl' : ''}">
-    <div class="k" style="background:${TIER_BG[t.k]};${t.k === 'F' ? 'color:var(--text)' : ''}">${t.k}<small>${esc(t.hrs)}</small></div>
+    <div class="k" style="background:${TIER_BG[t.k]};${t.k === 'F' ? 'color:var(--tier-F-ink, var(--text))' : ''}">${t.k}<small>${esc(t.hrs)}</small></div>
     <div class="cs">${t.cities.map((c) => `<span class="c">${esc(c)}</span>`).join('')}</div>
   </div>`).join('')}</div>`;
 
@@ -84,7 +87,7 @@ export const dayBars = (rows, { awakeFrom = 8, awakeTo = 23 } = {}) => {
     </div>`).join('')}
     <div class="axis">${[0, 6, 12, 18, 24].map((h) => `<span style="left:${pct(h)}">${['12a', '6a', '12p', '6p', '12a'][h / 6]}</span>`).join('')}</div>
   </div>
-  <div class="legend"><span><i style="background:var(--green)"></i>both awake</span><span><i style="background:#17241b;border:1.5px solid var(--line)"></i>you're awake (8a–11p)</span></div>`;
+  <div class="legend"><span><i style="background:var(--green)"></i>both awake</span><span><i style="background:var(--awake-bg);border:1.5px solid var(--line)"></i>you're awake (8a–11p)</span></div>`;
 };
 
 export const week = (days) => `<div class="week">

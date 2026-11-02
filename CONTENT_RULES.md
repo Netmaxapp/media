@@ -28,9 +28,9 @@ Every carousel goes through this list before it ships. The rules come from the N
 ## Design
 
 1. **No glow, no neon gradients, no globe wallpaper.** Every visual has to carry information: clocks, times, messages, calendars, data. If you can delete the image without losing anything, delete it.
-2. **Each carousel gets its own layout.** Type, color and margins stay the same across carousels. Layouts don't.
+2. **Each carousel gets its own theme** that fits its topic. A theme is a palette, a headline face and one signature detail: paper and highlighter for a writing guide, an airmail border for study abroad, a messages-app look for texts. The logo, handle, body font, type scale and margins stay the same everywhere. Two carousels in a row should never look alike in the grid, so alternate dark and light.
 3. **Use sentence-case headlines.** Use the mono font only for times, dates and labels.
-4. **Use one accent color, flat.** Brand green `#39FF88` on near-black.
+4. **Use one flat accent color per carousel.** Brand green `#39FF88` shows up in every theme, at least in the logo bar.
 5. **Put the handle small on every slide** so screenshots still credit us. Put the logo on the cover and the last slide only. No page counters, because the platforms already show dots.
 6. **Size natively for each platform.** Instagram is 1080×1350. TikTok is 1080×1920, with text kept out of the right-side buttons and the bottom caption area.
 7. **Alt text is the full slide text**, not a summary.

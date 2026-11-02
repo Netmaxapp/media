@@ -55,7 +55,7 @@ for (const c of carousels) {
 if (lintErrors.length) { console.error('Copy lint failed:\n' + lintErrors.join('\n')); process.exit(1); }
 
 // ---------- 3. html ----------
-function slideHtml(s, fmt) {
+function slideHtml(s, fmt, theme = 'night') {
   const top = s.cover || s.cta
     ? `<div class="row-top">${logo(s.cta)}${s.cover && s.label ? label(s.label, 'muted') : ''}</div>`
     : `<div class="row-top">${label(s.label || '')}${s.right || ''}</div>`;
@@ -72,7 +72,7 @@ function slideHtml(s, fmt) {
   const visual = s.visual ? `<div class="visual ${s.visualCls || ''}">${s.visual}${under}</div>` : '<div class="visual"></div>';
   return `<!doctype html><html><head><meta charset="utf-8">
   <link rel="stylesheet" href="file://${here}/styles.css"></head>
-  <body class="fmt-${fmt}"><div class="canvas"><div class="safe ${s.order === 'visual-first' ? 'order-visual-first' : ''} ${s.cta ? 'is-cta' : ''} ${s.cover ? 'is-cover' : ''} ${s.visual ? '' : 'no-visual'}">
+  <body class="fmt-${fmt} theme-${theme}"><div class="canvas"${s.accent ? ` style="--green:${s.accent};--green-ink:#111"` : ''}><div class="safe ${s.order === 'visual-first' ? 'order-visual-first' : ''} ${s.cta ? 'is-cta' : ''} ${s.cover ? 'is-cover' : ''} ${s.visual ? '' : 'no-visual'}">
     ${top}${text}${visual}
     <div class="foot"><span>${HANDLE[fmt]}</span></div>
   </div></div></body></html>`;
@@ -96,7 +96,7 @@ for (const c of carousels) {
     for (const [i, s] of c.slides.entries()) {
       const nn = String(i + 1).padStart(2, '0');
       const file = path.join(buildDir, `${c.slug}_${fmt}_${nn}.html`);
-      fs.writeFileSync(file, slideHtml(s, fmt));
+      fs.writeFileSync(file, slideHtml(s, fmt, c.theme));
       await page.goto('file://' + file);
       await page.evaluate(() => document.fonts.ready);
       const overflow = await page.evaluate(() => {
@@ -114,9 +114,10 @@ for (const c of carousels) {
         const t = safe.querySelector('.text')?.getBoundingClientRect(), v = safe.querySelector('.visual')?.getBoundingClientRect();
         if (t && v && v.height > 5 && !safe.classList.contains('order-visual-first') && t.bottom > v.top + 1) bad.push('text overlaps visual');
         const vis = safe.querySelector('.visual');
-        return { bad: bad.slice(0, 4), visualH: vis ? Math.round(vis.getBoundingClientRect().height) : 0, fonts: [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family) };
+        const headFont = getComputedStyle(document.querySelector('h1, h2')).fontFamily.split(',')[0].replace(/['"]/g, '').trim();
+        return { bad: bad.slice(0, 4), visualH: vis ? Math.round(vis.getBoundingClientRect().height) : 0, headFont, fonts: [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family.replace(/['"]/g, '')) };
       });
-      if (!overflow.fonts.includes('Bricolage Grotesque')) throw new Error('headline font did not load');
+      if (!overflow.fonts.includes(overflow.headFont)) throw new Error(`${c.slug} ${fmt} ${nn}: headline font ${overflow.headFont} did not load`);
       if (overflow.bad.length) report.push(`OVERFLOW ${c.slug} ${fmt} ${nn}: ${overflow.bad.join(', ')}`);
       const out = path.join(dir, `NET-MAX_carousel_${c.slug}_${fmt}_${nn}.jpg`);
       await page.screenshot({ path: out, type: 'jpeg', quality: 93, clip: { x: 0, y: 0, width: 1080, height: fmt === 'ig' ? 1350 : 1920 } });

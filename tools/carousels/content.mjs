@@ -76,7 +76,7 @@ const c1 = (() => {
   expect('c1 voice note Tokyo', time(vn, tz('Tokyo')), '1:02 PM');
 
   return {
-    slug: '7-time-zones', date: '2026-11-03', due: '2026-11-03T19:00:00-05:00',
+    slug: '7-time-zones', theme: 'night', date: '2026-11-03', due: '2026-11-03T19:00:00-05:00',
     slides: [
       {
         cover: true, h: 'How to keep friends in *7 time zones*',
@@ -170,7 +170,7 @@ const c2 = (() => {
   ];
   const m = (focus) => C.msg({ to: 'To: Priya · LinkedIn message', lines, sig: 'Sam', focus });
   return {
-    slug: 'after-the-conference', date: '2026-11-05', due: '2026-11-05T19:00:00-05:00',
+    slug: 'after-the-conference', theme: 'paper', date: '2026-11-05', due: '2026-11-05T19:00:00-05:00',
     slides: [
       {
         cover: true, label: 'Career fair season', h: 'What to send the day after you *meet someone*', hCls: 's',
@@ -242,7 +242,7 @@ const c3 = (() => {
   expect('c3 Berlin call time', time(call, tz('Berlin')), '5:00 PM');
   const people = ['The local who showed you around', 'Your weekend-trip person', 'The friend from another program', 'Your host family or professor', 'The 3 a.m. kitchen friend'];
   return {
-    slug: 'study-abroad-people', date: '2026-11-07', due: '2026-11-07T11:00:00-05:00',
+    slug: 'study-abroad-people', theme: 'airmail', date: '2026-11-07', due: '2026-11-07T11:00:00-05:00',
     slides: [
       {
         cover: true, label: 'Semester abroad', h: 'Before you fly home, *message these 5 people*', hCls: 'm',
@@ -309,14 +309,14 @@ NET-MAX launches in January. Waitlist link in bio.
 // ============================================================================
 const c4 = (() => {
   const texts = [
-    { h: 'The photo', b: 'Send it when something reminds you of them. The question at the end gives them something to answer.', t: [{ photo: 'your photo', text: 'this made me think of you. how’s denver treating you?' }] },
-    { h: 'The callback', b: 'Bring back something they told you about. It shows you were listening back then.', t: [{ text: 'random, but i finally tried the hot sauce you wouldn’t stop talking about. you were right' }] },
-    { h: 'The maybe-visit', b: 'Only send this one if the trip could really happen.', t: [{ text: 'are you still in chicago? i might be passing through in march' }] },
-    { h: 'The congrats', b: 'If they posted news, reply with a question they can answer in one text.', t: [{ text: 'congrats on the new job!! what’s the best part so far?' }] },
-    { h: 'The honest one', b: 'Name the specific thing you miss, then suggest a call.', t: [{ text: 'no reason, i just miss our tuesday trivia nights. call this week?' }] },
+    { h: 'The photo', b: 'Send it when something reminds you of them. The question at the end gives them something to answer.', t: [{ stamp: 'Today **7:02 PM**' }, { photo: 'your photo', text: 'this made me think of you. how’s denver treating you?' }, { receipt: 'Delivered' }] },
+    { h: 'The callback', b: 'Bring back something they told you about. It shows you were listening back then.', t: [{ stamp: 'Tue **9:14 PM**' }, { text: 'random, but i finally tried the hot sauce you wouldn’t stop talking about. you were right' }, { receipt: 'Delivered' }] },
+    { h: 'The maybe-visit', b: 'Only send this one if the trip could really happen.', t: [{ stamp: 'Sat **11:40 AM**' }, { text: 'are you still in chicago? i might be passing through in march' }, { receipt: 'Delivered' }] },
+    { h: 'The congrats', b: 'If they posted news, reply with a question they can answer in one text.', t: [{ stamp: 'Today **12:31 PM**' }, { text: 'congrats on the new job!! what’s the best part so far?' }, { receipt: 'Delivered' }] },
+    { h: 'The honest one', b: 'Name the specific thing you miss, then suggest a call.', t: [{ stamp: 'Sun **8:05 PM**' }, { text: 'no reason, i just miss our tuesday trivia nights. call this week?' }, { receipt: 'Delivered' }] },
   ];
   return {
-    slug: '5-texts', date: '2026-11-09', due: '2026-11-09T19:00:00-05:00',
+    slug: '5-texts', theme: 'chat', date: '2026-11-09', due: '2026-11-09T19:00:00-05:00',
     slides: [
       {
         cover: true, h: '5 texts to send someone you haven’t talked to *in a year*', hCls: 's',
@@ -327,7 +327,7 @@ const c4 = (() => {
       ...texts.map((x, i) => ({
         label: String(i + 1).padStart(2, '0'), h: x.h, hTag: 'h1', body: x.b, order: 'sandwich',
         visual: C.thread(x.t),
-        alt: `Text: “${x.t[0].text}”`,
+        alt: `Text: “${x.t.find((i) => i.text).text}”`,
       })),
       {
         cta: true, h: 'Then don’t let it be another year',
@@ -395,12 +395,12 @@ const c5 = (() => {
   const tierSlide = (k, h, body, barCities) => {
     const t = TIERS.find((x) => x.k === k);
     return {
-      label: `${k} tier · ${t.hrs.replace('h', ' hours')}`, h, body, visual: bars(...barCities),
+      label: `${k} tier · ${t.hrs.replace('h', ' hours')}`, h, body, visual: bars(...barCities), accent: `var(--tier-${k})`,
       alt: `Cities in this tier: ${t.cities.join(', ')}. ` + barCities.map((c) => `${c}: both awake ${ov[c].blocks.map((b) => `${hourLabel(b.start)} to ${hourLabel(b.end)}`).join(' and ')}, Indianapolis time`).join('. ') + '.',
     };
   };
   return {
-    slug: 'time-zones-ranked', date: '2026-11-10', due: '2026-11-10T19:00:00-05:00',
+    slug: 'time-zones-ranked', theme: 'tier', date: '2026-11-10', due: '2026-11-10T19:00:00-05:00',
     slides: [
       {
         cover: true, label: 'Tier list · from Indianapolis', h: 'Time zones, ranked by how hard it is to *text your friends*', hCls: 's',
@@ -454,7 +454,7 @@ const c6 = (() => {
   ];
   const prog = (i) => `<div style="display:flex;gap:8px">${steps.map((_, j) => `<span style="width:46px;height:8px;border-radius:4px;background:${j <= i ? 'var(--green)' : 'var(--line)'}"></span>`).join('')}</div>`;
   return {
-    slug: 'landing-somewhere-new', date: '2026-11-12', due: '2026-11-12T19:00:00-05:00',
+    slug: 'landing-somewhere-new', theme: 'green', date: '2026-11-12', due: '2026-11-12T19:00:00-05:00',
     slides: [
       {
         cover: true, label: 'Moving in January', h: 'New city? Start with who you *already know* there', hCls: 's',
@@ -525,9 +525,6 @@ const c7 = (() => {
     { w: 'Sunday', x: 'One meeting' },
   ];
   const sketch = `<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block">
-    <rect width="860" height="420" rx="14" fill="#f1efe6"/>
-    ${Array.from({ length: 12 }, (_, i) => `<line x1="0" x2="860" y1="${40 + i * 33}" y2="${40 + i * 33}" stroke="#bfd0de" stroke-width="1.5"/>`).join('')}
-    <line x1="92" x2="92" y1="0" y2="420" stroke="#e3a7a7" stroke-width="2"/>
     ${[[250, 215, 140], [520, 180, 95], [700, 280, 70]].map(([cx, cy, r], k) => `
       <g fill="none" stroke="#1f2b44" stroke-width="${3 - k * 0.5}" stroke-linecap="round" transform="rotate(${-8 + k * 9} ${cx} ${cy})">
         <path d="M ${cx - r} ${cy} C ${cx - r} ${cy - r * 0.6}, ${cx - r * 0.55} ${cy - r * 1.02}, ${cx + 4} ${cy - r} S ${cx + r * 1.02} ${cy - r * 0.5}, ${cx + r} ${cy + 3} S ${cx + r * 0.5} ${cy + r * 1.03}, ${cx - 3} ${cy + r} S ${cx - r * 1.01} ${cy + r * 0.45}, ${cx - r + 2} ${cy - 6}"/>
@@ -539,7 +536,7 @@ const c7 = (() => {
       </g>`).join('')}
   </svg>`;
   return {
-    slug: 'between-practice', date: '2026-11-14', due: '2026-11-14T11:00:00-05:00',
+    slug: 'between-practice', theme: 'notebook', date: '2026-11-14', due: '2026-11-14T11:00:00-05:00',
     slides: [
       {
         cover: true, label: 'Build log', h: 'Building an app between *practice and class*', hCls: 'm',
@@ -616,7 +613,7 @@ const c8 = (() => {
     return { n, ev, cls };
   }));
   return {
-    slug: 'before-you-go-home', date: '2026-11-15', due: '2026-11-15T11:00:00-05:00',
+    slug: 'before-you-go-home', theme: 'harvest', date: '2026-11-15', due: '2026-11-15T11:00:00-05:00',
     slides: [
       {
         cover: true, label: 'Thanksgiving · Thu Nov 26', h: 'Going home for Thanksgiving? *Text these people*', hCls: 'm',

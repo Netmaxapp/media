@@ -2,6 +2,9 @@
 @import url(fonts/poppins.css);
 @import url(fonts/inter.css);
 @import url(fonts/jbmono.css);
+@import url(fonts/fraunces.css);
+@import url(fonts/dmserif.css);
+@import url(fonts/kalam.css);
 
 :root {
   --bg: #050906;
@@ -16,6 +19,16 @@
   --green-ink: #03140a;
   --green-soft: rgba(57, 255, 136, 0.13);
   --green-line: rgba(57, 255, 136, 0.45);
+  /* everything below is overridden per theme */
+  --logo-bar: #39ff88;
+  --bubble-in-bg: #1b261f;
+  --ph-a: #0a2e18; --ph-b: #0d3a1f;
+  --awake-bg: #17241b;
+  --land: #16231b; --land-stroke: #2e4236;
+  --noise-invert: 0; --noise-opacity: 0.07;
+  --head-weight: 700; --head-track: -0.025em; --head-stretch: 100%; --head-vs: 'opsz' 96;
+  --tier-A: rgba(57,255,136,.78); --tier-B: rgba(57,255,136,.58);
+  --tier-C: rgba(57,255,136,.4); --tier-D: rgba(57,255,136,.25); --tier-F: #2a332d;
   --f-head: 'Bricolage Grotesque', 'Inter', sans-serif;
   --f-body: 'Inter', sans-serif;
   --f-mono: 'JetBrains Mono', monospace;
@@ -31,7 +44,7 @@ body { -webkit-font-smoothing: antialiased; font-family: var(--f-body); color: v
 
 /* faint paper grain so large dark areas don't look like flat vector fill */
 .canvas::before {
-  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.07; z-index: 0;
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: var(--noise-opacity); z-index: 0; filter: invert(var(--noise-invert));
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
@@ -44,7 +57,7 @@ body { -webkit-font-smoothing: antialiased; font-family: var(--f-body); color: v
 .row-top, .text, .foot { flex-shrink: 0; }
 .row-top { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
 .logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; color: var(--text); display: inline-flex; align-items: center; line-height: 1; }
-.logo i { display: inline-block; width: 30px; height: 7px; background: var(--green); margin: 0 7px; border-radius: 1px; }
+.logo i { display: inline-block; width: 30px; height: 7px; background: var(--logo-bar); margin: 0 7px; border-radius: 1px; }
 .logo.big { font-size: 64px; }
 .logo.big i { width: 48px; height: 11px; margin: 0 11px; }
 .label { font-family: var(--f-mono); font-weight: 500; font-size: 27px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--green); display: inline-flex; align-items: center; gap: 14px; }
@@ -53,7 +66,7 @@ body { -webkit-font-smoothing: antialiased; font-family: var(--f-body); color: v
 .foot { display: flex; justify-content: space-between; align-items: flex-end; font-family: var(--f-mono); font-size: 22px; color: var(--dim); padding-top: 26px; }
 
 /* ---------- text ---------- */
-h1, h2 { font-family: var(--f-head); font-weight: 700; color: var(--text); letter-spacing: -0.025em; font-variation-settings: 'opsz' 96; text-wrap: balance; }
+h1, h2 { font-family: var(--f-head); font-weight: var(--head-weight); color: var(--text); letter-spacing: var(--head-track); font-stretch: var(--head-stretch); font-variation-settings: var(--head-vs); text-wrap: balance; }
 h1 { font-size: 100px; line-height: 0.98; }
 h1.m { font-size: 88px; }
 h1.s { font-size: 78px; }
@@ -98,11 +111,11 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 /* chat */
 .thread { display: flex; flex-direction: column; gap: 14px; }
 .bubble { max-width: 86%; font-size: 36px; line-height: 1.36; padding: 22px 30px; border-radius: 36px; font-weight: 450; }
-.bubble.out { align-self: flex-end; background: var(--green); color: var(--green-ink); border-bottom-right-radius: 10px; font-weight: 500; }
-.bubble.in { align-self: flex-start; background: #1b261f; color: var(--text); border-bottom-left-radius: 10px; }
+.bubble.out { align-self: flex-end; background: var(--bubble-out-bg, var(--green)); color: var(--bubble-out-ink, var(--green-ink)); border-bottom-right-radius: 10px; font-weight: 500; }
+.bubble.in { align-self: flex-start; background: var(--bubble-in-bg); color: var(--bubble-in-ink, var(--text)); border-bottom-left-radius: 10px; }
 .bubble.ghost { opacity: 0.42; }
 .bubble.photo { padding: 12px; }
-.bubble .ph { width: 360px; height: 250px; border-radius: 26px; background: repeating-linear-gradient(135deg, #0a2e18 0 18px, #0d3a1f 18px 36px); display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 22px; color: var(--green); letter-spacing: 0.05em; text-transform: uppercase; }
+.bubble .ph { width: 360px; height: 250px; border-radius: 26px; background: repeating-linear-gradient(135deg, var(--ph-a) 0 18px, var(--ph-b) 18px 36px); display: flex; align-items: center; justify-content: center; font-family: var(--f-mono); font-size: 22px; color: var(--green); letter-spacing: 0.05em; text-transform: uppercase; }
 .bubble.photo .cap { padding: 16px 18px 8px; }
 .meta { font-family: var(--f-mono); font-size: 21px; color: var(--muted); letter-spacing: 0.02em; }
 .meta.r { align-self: flex-end; }
@@ -113,11 +126,11 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 .tag.l { align-self: flex-start; }
 
 /* voice note */
-.voice { align-self: flex-end; display: flex; align-items: center; gap: 22px; background: var(--green); color: var(--green-ink); border-radius: 40px; border-bottom-right-radius: 10px; padding: 22px 32px 22px 22px; }
-.voice .play { width: 68px; height: 68px; border-radius: 50%; background: var(--green-ink); display: flex; align-items: center; justify-content: center; }
-.voice .play::after { content: ''; border-left: 22px solid var(--green); border-top: 14px solid transparent; border-bottom: 14px solid transparent; margin-left: 6px; }
+.voice { align-self: flex-end; display: flex; align-items: center; gap: 22px; background: var(--bubble-out-bg, var(--green)); color: var(--bubble-out-ink, var(--green-ink)); border-radius: 40px; border-bottom-right-radius: 10px; padding: 22px 32px 22px 22px; }
+.voice .play { width: 68px; height: 68px; border-radius: 50%; background: var(--bubble-out-ink, var(--green-ink)); display: flex; align-items: center; justify-content: center; }
+.voice .play::after { content: ''; border-left: 22px solid var(--bubble-out-bg, var(--green)); border-top: 14px solid transparent; border-bottom: 14px solid transparent; margin-left: 6px; }
 .voice .wave { display: flex; align-items: center; gap: 5px; height: 60px; }
-.voice .wave span { width: 6px; border-radius: 3px; background: var(--green-ink); }
+.voice .wave span { width: 6px; border-radius: 3px; background: var(--bubble-out-ink, var(--green-ink)); }
 .voice .dur { font-family: var(--f-mono); font-size: 27px; font-weight: 600; }
 
 /* settings path */
@@ -186,7 +199,7 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 /* tier chart */
 .tiers { display: flex; flex-direction: column; gap: 10px; }
 .tiers .t { display: grid; grid-template-columns: 92px 1fr; gap: 16px; align-items: stretch; }
-.tiers .t .k { border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--f-head); font-weight: 800; font-size: 50px; line-height: 1; color: var(--green-ink); }
+.tiers .t .k { border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--f-head); font-weight: 800; font-size: 50px; line-height: 1; color: var(--tier-ink, var(--green-ink)); }
 .tiers .t .k small { font-family: var(--f-mono); font-size: 17px; font-weight: 600; margin-top: 4px; }
 .tiers .t .cs { display: flex; flex-wrap: wrap; gap: 8px; align-content: center; background: var(--surface); border-radius: 16px; padding: 12px; min-height: 86px; }
 .tiers .t .c { font-size: 25px; font-weight: 500; background: var(--surface-2); border: 1.5px solid var(--line); border-radius: 12px; padding: 7px 14px; white-space: nowrap; }
@@ -199,7 +212,7 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 .bar .lab .c { font-size: 32px; font-weight: 600; }
 .bar .lab .h { font-family: var(--f-mono); font-size: 26px; color: var(--green); }
 .bar .track { position: relative; height: 54px; border-radius: 12px; background: var(--surface); border: 1.5px solid var(--line); overflow: hidden; }
-.bar .awake { position: absolute; top: 0; bottom: 0; background: #17241b; }
+.bar .awake { position: absolute; top: 0; bottom: 0; background: var(--awake-bg); }
 .bar .seg { position: absolute; top: 0; bottom: 0; background: var(--green); }
 .bar .seg span { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-family: var(--f-mono); font-size: 19px; color: var(--green-ink); font-weight: 700; white-space: nowrap; }
 .axis { position: relative; height: 30px; margin-top: 10px; font-family: var(--f-mono); font-size: 20px; color: var(--muted); }
@@ -245,7 +258,7 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 
 /* map */
 .map svg { display: block; width: 100%; height: auto; }
-.map .land { fill: #16231b; stroke: #2e4236; stroke-width: 0.35; }
+.map .land { fill: var(--land); stroke: var(--land-stroke); stroke-width: 0.35; }
 .map .pin { fill: var(--green); }
 .map .ring { fill: none; stroke: var(--green); stroke-width: 1.4; opacity: 0.5; }
 .map text { font-family: var(--f-mono); fill: var(--text); }
@@ -325,3 +338,117 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 .fmt-tt .visual { flex: 0 0 auto; margin-bottom: auto; }
 .fmt-tt .no-visual .text { margin-bottom: auto; }
 .fmt-tt .msg { font-size: 31px; line-height: 1.44; }
+
+/* =====================================================================
+   THEMES: one per carousel. Type scale, margins, logo and handle are shared;
+   palette, headline face and one signature detail change.
+   ===================================================================== */
+
+/* chat timestamp, iMessage style (used by the chat theme) */
+.stamp { align-self: center; font-family: var(--f-body); font-size: 23px; color: var(--muted); margin-bottom: 6px; }
+.stamp b { font-weight: 600; }
+.receipt { align-self: flex-end; font-family: var(--f-body); font-size: 22px; color: var(--muted); margin-top: -4px; }
+
+/* --- night (Nov 3): the default palette above --- */
+
+/* --- paper (Nov 5): a writing guide. Off-white, serif headlines, highlighter --- */
+.theme-paper {
+  --bg: #f3f0e8; --surface: #fffdf8; --surface-2: #ebe6da; --line: #ddd6c6;
+  --text: #16130e; --body: #3d382f; --muted: #7b7466; --dim: #b0a898;
+  --green: #0b7d3e; --green-ink: #ffffff; --green-soft: rgba(57,255,136,.55); --green-line: rgba(11,125,62,.45);
+  --logo-bar: #22d16c; --noise-invert: 1; --noise-opacity: 0.05;
+  --f-head: 'Fraunces', serif; --head-weight: 600; --head-track: -0.02em; --head-vs: 'opsz' 144;
+  --land: #e4ddcd; --land-stroke: #cfc6b3;
+}
+.theme-paper h1 em, .theme-paper h2 em { color: var(--text); background: linear-gradient(transparent 58%, rgba(57,255,136,.75) 58%, rgba(57,255,136,.75) 92%, transparent 92%); padding: 0 4px; }
+.theme-paper .card { box-shadow: 0 2px 0 var(--line), 0 24px 50px rgba(60,48,20,.08); }
+.theme-paper .msg { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 24; font-size: 33px; }
+.theme-paper .msg.focus .ln.on { color: var(--text); background: linear-gradient(transparent 4%, rgba(57,255,136,.6) 4%, rgba(57,255,136,.6) 96%, transparent 96%); box-shadow: none; border-left: 0; padding-left: 0; margin-left: 0; }
+
+/* --- airmail (Nov 7): navy, cream note cards, airmail stripe border --- */
+.theme-airmail {
+  --bg: #15244d; --surface: #1d2f60; --surface-2: #263b72; --line: #344a82;
+  --text: #f7f0e3; --body: #dcd4c4; --muted: #a8b3d0; --dim: #7280a8;
+  --green: #ff7452; --green-ink: #1a0d08; --green-soft: rgba(255,116,82,.16); --green-line: rgba(255,116,82,.5);
+  --bubble-out-bg: #f7f0e3; --bubble-out-ink: #15244d; --bubble-in-bg: #263b72;
+  --land: #22366c; --land-stroke: #3a5290;
+  --head-stretch: 75%; --head-weight: 800; --head-track: -0.01em;
+}
+.theme-airmail .canvas::after {
+  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  border: 24px solid transparent;
+  border-image: repeating-linear-gradient(-45deg, #e8412b 0 30px, #f7f0e3 30px 44px, #2f63d6 44px 74px, #f7f0e3 74px 88px) 24;
+}
+.theme-airmail .roles .ro .x, .theme-airmail .check .i { border-bottom: 2px dotted var(--line); }
+.theme-airmail .roles .ro { border-top: 0; }
+
+/* --- chat (Nov 9): a messages app in light mode --- */
+.theme-chat {
+  --bg: #f2f2f7; --surface: #ffffff; --surface-2: #e9e9ef; --line: #dcdce3;
+  --text: #0b0b0f; --body: #3a3a42; --muted: #8a8a93; --dim: #b8b8c0;
+  --green: #0a8f45; --green-ink: #ffffff; --green-soft: rgba(57,255,136,.25); --green-line: rgba(10,143,69,.4);
+  --bubble-out-bg: #39ff88; --bubble-out-ink: #03140a; --bubble-in-bg: #e5e5ea; --bubble-in-ink: #0b0b0f;
+  --ph-a: #c9f7dc; --ph-b: #b6f2cf;
+  --logo-bar: #22d16c; --noise-opacity: 0;
+  --f-head: 'Inter', sans-serif; --head-weight: 800; --head-track: -0.035em; --head-vs: normal;
+}
+.theme-chat .bubble .ph { color: #0a8f45; }
+
+/* --- tier (Nov 10): tier-maker colors on charcoal; each tier slide takes its tier's color --- */
+.theme-tier {
+  --bg: #111111; --surface: #1c1c1c; --surface-2: #262626; --line: #333333;
+  --text: #f5f5f5; --body: #d2d2d2; --muted: #9a9a9a; --dim: #626262;
+  --green: #39ff88; --green-ink: #111111;
+  --awake-bg: #262626; --head-weight: 800;
+  --tier-S: #ff7f7f; --tier-A: #ffbf7f; --tier-B: #ffdf7f; --tier-C: #bfff7f; --tier-D: #7fdfff; --tier-F: #c9a0ff;
+  --tier-ink: #111111; --tier-F-ink: #111111;
+}
+.theme-tier .tiers .t .cs { background: #1c1c1c; }
+
+/* --- green (Nov 12): full brand green, black type --- */
+.theme-green {
+  --bg: #39ff88; --surface: #ffffff; --surface-2: #e3ffee; --line: rgba(3,20,10,.16);
+  --text: #03140a; --body: #0f3320; --muted: #1f5a37; --dim: #3c8a5c;
+  --green: #03140a; --green-ink: #39ff88; --green-soft: rgba(3,20,10,.08); --green-line: rgba(3,20,10,.4);
+  --bubble-out-bg: #03140a; --bubble-out-ink: #39ff88;
+  --logo-bar: #03140a; --noise-invert: 1; --noise-opacity: 0.06;
+  --land: #2ee07a; --land-stroke: #1fb862;
+  --head-weight: 800;
+}
+.theme-green .card { border-color: transparent; box-shadow: 0 18px 40px rgba(3,20,10,.12); }
+.theme-green .card .muted, .theme-green .card-title, .theme-green .tl .when { color: #3c6b4f; }
+.theme-green .card .tl .what { color: #0f3320; }
+.theme-green .map text { stroke: #39ff88; fill: #03140a; }
+.theme-green .map text.t { fill: #03140a; }
+.theme-green .map .pin { fill: #03140a; }
+.theme-green .map .ring { stroke: #03140a; }
+
+/* --- notebook (Nov 14): lined paper, pen ink, handwritten headlines --- */
+.theme-notebook {
+  --bg: #fbfaf3; --surface: #ffffff; --surface-2: #f1f4fa; --line: #d6dde9;
+  --text: #1c2340; --body: #2f3657; --muted: #6b7290; --dim: #9ba1b8;
+  --green: #2a52c9; --green-ink: #ffffff; --green-soft: rgba(57,255,136,.55); --green-line: rgba(42,82,201,.4);
+  --logo-bar: #22d16c; --noise-invert: 1; --noise-opacity: 0.04;
+  --f-head: 'Kalam', cursive; --head-weight: 700; --head-track: -0.01em; --head-vs: normal;
+}
+.theme-notebook .canvas {
+  background-color: #fbfaf3;
+  background-image:
+    linear-gradient(to right, transparent 54px, #ec9c9c 54px, #ec9c9c 57px, transparent 57px),
+    repeating-linear-gradient(to bottom, transparent 0 62px, #d3e1ee 62px 64px);
+}
+.theme-notebook h1, .theme-notebook h2 { line-height: 1.08; }
+.theme-notebook h1 em, .theme-notebook h2 em { color: var(--text); background: linear-gradient(transparent 50%, rgba(57,255,136,.7) 50%, rgba(57,255,136,.7) 90%, transparent 90%); }
+.theme-notebook .plan .b.on { background: rgba(57,255,136,.75); border-color: transparent; }
+.theme-notebook .plan .b.on .w, .theme-notebook .plan .b.on .x { color: var(--text); }
+.theme-notebook .card, .theme-notebook .plan .b { box-shadow: 0 2px 0 var(--line); }
+
+/* --- harvest (Nov 15): Thanksgiving. Dark brown, pumpkin, menu serif --- */
+.theme-harvest {
+  --bg: #2a1911; --surface: #3a2418; --surface-2: #4a2f20; --line: #5c3d2a;
+  --text: #fbefdc; --body: #ead7bd; --muted: #c2a688; --dim: #8e7159;
+  --green: #f39a4c; --green-ink: #2a1911; --green-soft: rgba(243,154,76,.16); --green-line: rgba(243,154,76,.5);
+  --logo-bar: #39ff88;
+  --f-head: 'DM Serif Display', serif; --head-weight: 400; --head-track: -0.01em; --head-vs: normal;
+}
+.theme-harvest h1, .theme-harvest h2 { line-height: 1.02; }
