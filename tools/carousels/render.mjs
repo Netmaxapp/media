@@ -7,6 +7,7 @@ import { createRequire } from 'node:module';
 import { carousels } from './content.mjs';
 import { checkCopy } from './time.mjs';
 import { md, plain, logo, label } from './components.mjs';
+import { styleGuard } from './guard.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 // Playwright is installed globally in the build environment (NODE_PATH); ESM ignores NODE_PATH, so use require.
@@ -118,6 +119,8 @@ for (const c of carousels) {
         return { bad: bad.slice(0, 4), visualH: vis ? Math.round(vis.getBoundingClientRect().height) : 0, headFont, fonts: [...document.fonts].filter((f) => f.status === 'loaded').map((f) => f.family.replace(/['"]/g, '')) };
       });
       if (!overflow.fonts.includes(overflow.headFont)) throw new Error(`${c.slug} ${fmt} ${nn}: headline font ${overflow.headFont} did not load`);
+      const guard = await page.evaluate(styleGuard, '.canvas');
+      if (guard.length) throw new Error(`${c.slug} ${fmt} ${nn} breaks the editing rules:\n  ${guard.join('\n  ')}`);
       if (overflow.bad.length) report.push(`OVERFLOW ${c.slug} ${fmt} ${nn}: ${overflow.bad.join(', ')}`);
       const out = path.join(dir, `NET-MAX_carousel_${c.slug}_${fmt}_${nn}.jpg`);
       await page.screenshot({ path: out, type: 'jpeg', quality: 93, clip: { x: 0, y: 0, width: 1080, height: fmt === 'ig' ? 1350 : 1920 } });

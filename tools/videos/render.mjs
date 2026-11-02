@@ -7,6 +7,16 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { videos } from './scenes.mjs';
 import { checkCopy } from '../carousels/time.mjs';
+import { styleGuard } from '../carousels/guard.mjs';
+
+// Editing rule 5: vary the moves, but keep each video to a small, deliberate set.
+for (const v of videos) {
+  const moves = [...v.html.matchAll(/<[^>]*data-in=[^>]*>/g)].map((m) => (m[0].match(/data-fx="(\w+)"/) || [])[1] || 'cut');
+  const kinds = new Set(moves);
+  if (kinds.size > 3) throw new Error(`${v.slug}: ${kinds.size} entrance moves (${[...kinds]}); rule 5 allows 3`);
+  if (moves.filter((m) => m === 'rise').length > 1) throw new Error(`${v.slug}: "rise" used more than once`);
+  if (/data-scale/.test(v.html)) throw new Error(`${v.slug}: data-scale (pop) is banned`);
+}
 
 const { chromium } = createRequire(import.meta.url)('playwright');
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -30,6 +40,8 @@ for (const v of videos) {
   fs.writeFileSync(path.join(dir, 'scene.html'), html);
   await page.goto('file://' + path.join(dir, 'scene.html'));
   await page.evaluate(() => document.fonts.ready);
+  const guard = await page.evaluate(styleGuard, '.stage');
+  if (guard.length) throw new Error(`${v.slug} breaks the editing rules:\n  ${guard.join('\n  ')}`);
 
   if (args.stills) {
     for (const t of String(args.stills).split(',').map(Number)) {

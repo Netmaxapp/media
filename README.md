@@ -8,7 +8,8 @@ Finished post images for @networkingmaxxing (Instagram) and @netmaxapp (TikTok).
   - `NET-MAX_carousel_<slug>_ig_NN.jpg`: Instagram, 1080×1350
   - `NET-MAX_carousel_<slug>_tt_NN.jpg`: TikTok photo mode, 1080×1920, with text kept clear of TikTok's buttons and caption area
   - `NET-MAX_video_<slug>.mp4`: 9:16 video for Reels and TikTok
-- `CONTENT_RULES.md` is the checklist every post goes through before it ships.
+- `CONTENT_RULES.md` is the checklist every post goes through before it ships. Its six editing rules come first.
+- `VIDEO_STYLE.md` is the video editing style guide: captions, fonts, the set of animation moves, corners, pacing and engagement.
 - `tools/carousels/` is the source for the carousels:
   - `content.mjs`: all slide copy, captions, alt text and each carousel's `theme`. Every time and date is computed from the tz database and checked.
   - `styles.css`: the shared layout plus one theme per carousel (night, paper, airmail, chat, tier, green, notebook, harvest).

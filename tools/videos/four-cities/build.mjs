@@ -13,6 +13,7 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { HOME, wall, time, awake, checkCopy, expect } from '../../carousels/time.mjs';
 import { logo } from '../../carousels/components.mjs';
+import { styleGuard } from '../../carousels/guard.mjs';
 
 const { chromium } = createRequire(import.meta.url)('playwright');
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -55,8 +56,8 @@ const overlay = (s) => `<div class="stage" style="background:transparent;--noise
       <span style="font-family:var(--f-mono);font-size:72px;font-weight:600;color:#39ff88">${s.t}</span>
       ${s.tomorrow ? '<span style="font-family:var(--f-mono);font-size:30px;color:#fff;opacity:.8">TOMORROW</span>' : ''}
     </div>
-    <div style="margin-top:22px;display:inline-flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:30px;text-transform:uppercase;letter-spacing:.06em;color:${s.awake ? '#03140a' : '#fff'};background:${s.awake ? '#39ff88' : 'rgba(255,255,255,.18)'};padding:10px 22px;border-radius:999px">${s.awake ? 'awake' : 'asleep'}</div>
-    ${s.ai ? '<div style="position:absolute;left:0;bottom:0;font-family:var(--f-mono);font-size:24px;color:#fff;background:rgba(0,0,0,.45);padding:8px 16px;border-radius:10px;letter-spacing:.04em">AI-GENERATED FOOTAGE</div>' : ''}
+    <div style="margin-top:22px;display:inline-flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:30px;text-transform:uppercase;letter-spacing:.06em;color:${s.awake ? '#03140a' : '#fff'};background:${s.awake ? '#39ff88' : 'rgba(255,255,255,.18)'};padding:10px 22px">${s.awake ? 'awake' : 'asleep'}</div>
+    ${s.ai ? '<div style="position:absolute;left:0;bottom:0;font-family:var(--f-mono);font-size:24px;color:#fff;background:rgba(0,0,0,.45);padding:8px 16px;letter-spacing:.04em">AI-GENERATED FOOTAGE</div>' : ''}
   </div></div>`;
 const endcard = `<div class="stage"><div class="zone"><div class="endcard">
   ${logo(true)}
@@ -74,6 +75,8 @@ const shoot = async (body, file, transparent) => {
     <body class="theme-night" style="${transparent ? 'background:transparent' : ''}">${body}</body></html>`);
   await page.goto('file://' + htmlFile);
   await page.evaluate(() => document.fonts.ready);
+  const guard = await page.evaluate(styleGuard, '.stage');
+  if (guard.length) throw new Error(`${file} breaks the editing rules:\n  ${guard.join('\n  ')}`);
   await page.screenshot({ path: path.join(outDir, file), omitBackground: transparent });
 };
 for (const s of SHOTS) await shoot(overlay(s), `overlay_${s.file}.png`, true);

@@ -46,7 +46,7 @@
 .matrix .q .sm { font-family: var(--f-mono); font-size: 28px; color: var(--muted); margin-top: 12px; line-height: 1.35; }
 
 /* contacts list -> clocks */
-.clist { position: absolute; left: 0; right: 0; top: 330px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 34px; padding: 18px 34px; }
+.clist { position: absolute; left: 0; right: 0; top: 330px; background: var(--surface); border: 1.5px solid var(--line); padding: 18px 34px; }
 .clist .row { position: relative; display: flex; justify-content: space-between; align-items: center; height: 92px; border-top: 1.5px solid var(--line); }
 .clist .row:first-child { border-top: 0; }
 .clist .nm { font-size: 38px; font-weight: 600; color: var(--text); }

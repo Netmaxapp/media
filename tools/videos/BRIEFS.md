@@ -2,6 +2,8 @@
 
 Written with the ai-video skill's BRIEF framework: **B**rief the job, **R**oute by fit, **I**terate cheaply, **E**dit and assemble, **F**inalize and disclose.
 
+Every edit follows the six editing rules in `CONTENT_RULES.md` and the specs in `VIDEO_STYLE.md`. On Nov 2 the three motion videos were re-cut to match them: a cut-first set of moves, no pop, square panels, and the typed text filling in 3 words at a time.
+
 Brand inputs come from `CONTENT_RULES.md` (voice and design) and the carousel themes in `tools/carousels/styles.css`. There is no separate brand profile. Briefs never name a vendor; tools are picked at routing time and can be swapped out.
 
 | # | Video | Job | Route | Status |

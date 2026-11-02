@@ -452,7 +452,7 @@ const c6 = (() => {
     { when: 'Week 1', what: 'Book one coffee' },
     { when: 'Month 1', what: 'Keep up with home too' },
   ];
-  const prog = (i) => `<div style="display:flex;gap:8px">${steps.map((_, j) => `<span style="width:46px;height:8px;border-radius:4px;background:${j <= i ? 'var(--green)' : 'var(--line)'}"></span>`).join('')}</div>`;
+  const prog = (i) => `<div style="display:flex;gap:8px">${steps.map((_, j) => `<span style="width:46px;height:8px;background:${j <= i ? 'var(--green)' : 'var(--line)'}"></span>`).join('')}</div>`;
   return {
     slug: 'landing-somewhere-new', theme: 'green', date: '2026-11-12', due: '2026-11-12T19:00:00-05:00',
     slides: [

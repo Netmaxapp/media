@@ -1,6 +1,19 @@
 # Content rules
 
-Every carousel goes through this list before it ships. The rules come from the November 2026 audit: the first batch of 8 carousels (59 slides) had all of these problems.
+Every video and carousel goes through this list before it ships. The copy and design rules come from the November 2026 audit: the first batch of 8 carousels (59 slides) had all of these problems.
+
+## Editing rules (these come first)
+
+**Core principle:** skip the editing habits AI tools repeat on every video. Pick classic, brand-consistent choices instead. These six rules beat everything else on this page. [`VIDEO_STYLE.md`](VIDEO_STYLE.md) turns them into exact specs.
+
+1. **Captions show 3 words at a time.** Never animate one word or one letter at a time.
+2. **No italic fonts.** Use our brand fonts (Bricolage Grotesque, Inter, JetBrains Mono, upright theme faces) or TikTok's Classic font. Emphasis is green or a highlighter, never italic.
+3. **No stock emojis or generic icons on screen.** Use real screenshots (Clock, Messages, Maps, Calendar, the real NET-MAX build) or the data itself. Never generate a fake app screen.
+4. **Keep natural pauses in speech.** Shorten long silences, but don't strip every pause. Cut between sentences, never mid-phrase.
+5. **No "pop" on every element.** Use cut, fade, wipe or (once) rise. Use at most 3 moves per video. No scale, bounce or shake.
+6. **Square corners by default.** Round only what's round in real life: message bubbles, voice notes, avatars and status dots.
+
+The build enforces rules 1, 2, 3, 5 and 6. `tools/carousels/guard.mjs` and the video renderer fail on italic type, on-screen emoji, rounded boxes, pop animations, more than 3 moves, or text typed out letter by letter. Rule 4 needs a human ear.
 
 ## Copy
 
