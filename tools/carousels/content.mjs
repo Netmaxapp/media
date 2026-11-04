@@ -292,7 +292,9 @@ const c3 = (() => {
         alt: 'Map with pins in Indianapolis, Madrid and Berlin and their local times.',
       },
     ],
-    ig: `Finishing a semester abroad in December? Message these five people before your flight, and get real phone numbers while you’re still in the same city.
+    ig: `Finishing a semester abroad in December? Message these five people before your flight.
+
+Get real phone numbers while you’re still in the same city.
 
 Who was your 3 a.m. kitchen friend?
 
@@ -422,7 +424,9 @@ const c5 = (() => {
         alt: '',
       },
     ],
-    ig: `We ranked time zones by the longest stretch you share with Indianapolis while you’re both awake, 8 a.m. to 11 p.m., using November clocks.
+    ig: `We ranked time zones by how many waking hours you share with Indianapolis in November.
+
+We counted the longest stretch you’re both awake, 8 a.m. to 11 p.m.
 
 Surprises: Bogotá is on our time right now, Sydney beats Tokyo, and the bottom of the list is Bangkok, Jakarta and Ho Chi Minh City, exactly 12 hours ahead.
 
@@ -504,7 +508,9 @@ const c6 = (() => {
         alt: 'Map with pins in Indianapolis and Madrid and their local times.',
       },
     ],
-    ig: `Starting an internship or a semester somewhere new in January? A four-week plan for the people side of the move, starting with everyone you already know there.
+    ig: `Moving somewhere new in January? Start with the people you already know there.
+
+A four-week plan for the people side of an internship or semester move.
 
 NET-MAX launches in January. Waitlist link in bio.
 
