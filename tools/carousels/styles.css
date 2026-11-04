@@ -4,7 +4,6 @@
 @import url(fonts/jbmono.css);
 @import url(fonts/fraunces.css);
 @import url(fonts/dmserif.css);
-@import url(fonts/kalam.css);
 
 :root {
   --bg: #050906;
@@ -429,7 +428,7 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
   --text: #1c2340; --body: #2f3657; --muted: #6b7290; --dim: #9ba1b8;
   --green: #2a52c9; --green-ink: #ffffff; --green-soft: rgba(57,255,136,.55); --green-line: rgba(42,82,201,.4);
   --logo-bar: #22d16c; --noise-invert: 1; --noise-opacity: 0.04;
-  --f-head: 'Kalam', cursive; --head-weight: 700; --head-track: -0.01em; --head-vs: normal;
+  --f-head: 'Bricolage Grotesque', 'Inter', sans-serif; --head-weight: 800; --head-track: -0.03em; --head-vs: 'opsz' 96;
 }
 .theme-notebook .canvas {
   background-color: #fbfaf3;
@@ -437,7 +436,7 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
     linear-gradient(to right, transparent 54px, #ec9c9c 54px, #ec9c9c 57px, transparent 57px),
     repeating-linear-gradient(to bottom, transparent 0 62px, #d3e1ee 62px 64px);
 }
-.theme-notebook h1, .theme-notebook h2 { line-height: 1.08; }
+.theme-notebook h1, .theme-notebook h2 { line-height: 1.04; }
 .theme-notebook h1 em, .theme-notebook h2 em { color: var(--text); background: linear-gradient(transparent 50%, rgba(57,255,136,.7) 50%, rgba(57,255,136,.7) 90%, transparent 90%); }
 .theme-notebook .plan .b.on { background: rgba(57,255,136,.75); border-color: transparent; }
 .theme-notebook .plan .b.on .w, .theme-notebook .plan .b.on .x { color: var(--text); }
