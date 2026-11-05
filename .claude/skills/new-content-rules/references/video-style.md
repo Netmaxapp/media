@@ -36,7 +36,7 @@ AI tools animate captions one word at a time, each word popping in. It's tiring 
 The slanted display serif AI tools love is the most recognizable "AI video" font there is.
 
 - **Our fonts:** Bricolage Grotesque for headlines, Inter for body and captions, Fraunces as the one serif for themes that need it. Three families total, no monospace. No script or handwriting faces.
-- **Emphasis:** a headline is one colour and one face. Never one coloured, highlighted or italic word inside it (Hallmark 38iii). Put emphasis in the words, or split the line in two.
+- **Emphasis:** a headline is one colour and one face. Never one coloured, highlighted or italic word inside it. Put emphasis in the words, or split the line in two.
 - **Text added in the TikTok or Instagram editor:** use the **Classic** font. Don't use the script, neon or typewriter styles.
 
 *Checked by the build:* any italic or oblique text on a frame fails the render.

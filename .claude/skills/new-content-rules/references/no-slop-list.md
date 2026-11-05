@@ -1,6 +1,6 @@
 # The no-slop list
 
-These 20 design and writing patterns mark something as AI-generated. We don't use any of them, in any post, video, carousel, doc or page.
+These 20 design and writing patterns mark something as AI-generated. We don't use any of them, in any post, video, carousel, story or caption.
 
 | # | Never | Do this instead |
 |---|---|---|

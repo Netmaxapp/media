@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 // new-content-rules checker: text-level checks for NET-MAX social copy. No dependencies, no network.
 //
-//   node lint.mjs <file-or-folder> [--format ig|tt|story|slide]
+//   node lint.mjs <file-or-folder> [--format ig|tt|story|slide|carousel]
 //   node lint.mjs --text "caption text" --format ig
 //   node lint.mjs --manifest tools/carousels/manifest.json
+//   node lint.mjs slides.md --format carousel   (splits on '## Slide' headings; checks each slide
+//                                              and that the CTA is on the last slide only)
 //
 // Formats: ig = Instagram caption, tt = TikTok caption, slide = on-screen slide text
 // (first line = headline), story = story frame. Default for files: guessed from the name
@@ -71,6 +73,18 @@ function check(text, format) {
   return out;
 }
 
+const CTA = /waitlist|link in (our )?bio|NET-MAX (launches|is launching)|join (us|the)/i;
+function carousel(text) {
+  const slides = text.split(/^##\s+Slide\b.*$/m).slice(1).map((x) => x.replace(/\*\*(Headline|Body):\*\*\s*/g, '').replace(/^---\s*$/gm, '').trim());
+  if (!slides.length) return [{ where: 'carousel', res: [['FAIL', 'no "## Slide" headings found']] }];
+  return slides.map((t, i) => {
+    const res = check(t, 'slide');
+    if (i < slides.length - 1 && CTA.test(t)) res.push(['FAIL', `call to action before the last slide: "${t.match(CTA)[0]}"`]);
+    if (i === slides.length - 1 && !CTA.test(t)) res.push(['WARN', 'last slide has no clear call to action']);
+    return { where: `slide ${i + 1}`, res };
+  });
+}
+
 const guess = (f) => /_tt|tiktok/i.test(f) ? 'tt' : /story/i.test(f) ? 'story' : /slide/i.test(f) ? 'slide' : 'ig';
 const items = [];
 if (flag('text') !== undefined) items.push({ where: '--text', text: flag('text'), format: flag('format') || 'ig' });
@@ -84,14 +98,17 @@ for (const a of argv.filter((x, i) => !x.startsWith('--') && !argv[i - 1]?.start
   const files = fs.statSync(a).isDirectory() ? fs.readdirSync(a).filter((f) => /\.(txt|md)$/.test(f)).map((f) => path.join(a, f)) : [a];
   for (const f of files) items.push({ where: f, text: fs.readFileSync(f, 'utf8'), format: flag('format') || guess(f) });
 }
-if (!items.length) { console.error('usage: lint.mjs <file-or-folder> [--format ig|tt|story|slide] | --text "..." | --manifest manifest.json'); process.exit(2); }
+if (!items.length) { console.error('usage: lint.mjs <file-or-folder> [--format ig|tt|story|slide|carousel] | --text "..." | --manifest manifest.json'); process.exit(2); }
 
 let fails = 0, warns = 0;
-for (const it of items) {
-  const res = check(it.text, it.format);
+const expanded = items.flatMap((it) => it.format === 'carousel'
+  ? carousel(it.text).map((c) => ({ ...it, where: `${it.where} ${c.where}`, format: 'slide', res: c.res }))
+  : [it]);
+for (const it of expanded) {
+  const res = it.res || check(it.text, it.format);
   if (!res.length) { console.log(`PASS  ${it.where} [${it.format}]`); continue; }
   console.log(`${it.where} [${it.format}]`);
   for (const [lvl, m] of res) { console.log(`  ${lvl}  ${m}`); lvl === 'FAIL' ? fails++ : warns++; }
 }
-console.log(`\nnew-content-rules: ${fails} FAIL, ${warns} WARN across ${items.length} item(s).`);
+console.log(`\nnew-content-rules: ${fails} FAIL, ${warns} WARN across ${expanded.length} item(s).`);
 process.exit(fails ? 1 : 0);
