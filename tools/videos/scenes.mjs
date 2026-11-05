@@ -39,7 +39,7 @@ const friends2x2 = {
       ${quads.map((q) => `<div class="q" style="left:${q.x}px;top:${q.y}px" ${at(q.t, OUT1)}>
         <div class="dot"></div><div class="nm">${esc(q.nm)}</div><div class="sm">${esc(q.sm)}</div></div>`).join('')}
     </div>
-    ${endcard(OUT1, 'Keep all *four*.', 'NET-MAX puts everyone you know on one map. Coming to iOS in January.')}`,
+    ${endcard(OUT1, 'Keep all *four*', 'NET-MAX puts everyone you know on one map. Coming to iOS in January.')}`,
   alt: 'A 2×2 matrix of friends you make abroad. Axes: lives nearby to 9 time zones away, replies in minutes to replies in months. The one you see every week. The 4 a.m. voice note friend. Lives 20 minutes away, last seen 2024. “We should totally visit,” said every year since 2021. Keep all four. NET-MAX, coming to iOS in January.',
 };
 
@@ -83,8 +83,8 @@ const contactsToClocks = {
       }).join('')}
     </div>
     <div class="vsub abs" style="top:1090px;left:0;right:0;color:var(--text)" ${at(9.4, OUT2)}><b>${awakeCount} of them are awake right now.</b></div>
-    <div class="abs vlabel" style="top:1162px;left:0;color:var(--muted)" ${at(10.6, OUT2, fade)}>still no idea who Daniel is</div>
-    ${endcard(OUT2, 'Everyone you know, with a *city and a clock*.', 'NET-MAX is coming to iOS in January.')}`,
+    <div class="abs vlabel" style="top:1162px;left:0;color:var(--muted)" ${at(10.6, OUT2, fade)}>Still no idea who Daniel is</div>
+    ${endcard(OUT2, 'Everyone you know, with a *city and a clock*', 'NET-MAX is coming to iOS in January.')}`,
   alt: `A contacts list with names like “Alex (conference?)”, “Maria Madrid?” and “Daniel ???”, mostly last texted never. Then the same people with a city and their local time at 7 p.m. in Indianapolis: ${contacts.filter((c) => c[2]).map(([nm, , tz, city]) => `${city} ${time(NOW, tz)}`).join(', ')}. ${awakeCount} of them are awake right now. Still no idea who Daniel is. NET-MAX is coming to iOS in January.`,
 };
 
@@ -95,17 +95,17 @@ const msg = 'hi priya! sam from the career fair, the coffee line one. could i bu
 const conferenceMath = {
   slug: 'conference-math', date: '2026-11-13', theme: 'tier', duration: 15,
   html: `
-    <div class="vlabel abs" style="top:0;left:0" ${at(0, 4.9)}>Conference math</div>
+    <div class="vh1 abs" style="top:0;left:0;font-size:72px" ${at(0, 4.9)}>Conference math</div>
     <div class="abs" style="top:90px;left:0" ${at(0, 4.9)}><div class="big">1</div><div class="cap">conference</div></div>
     <div class="abs" style="top:420px;left:0" ${at(1.6, 4.9)}><div class="big" data-count="1.6" data-cdur="1.3" data-from="0" data-to="47">0</div><div class="cap">new contacts</div></div>
     <div class="abs" style="top:750px;left:0" ${at(3.2, 4.9)}><div class="big g">0</div><div class="cap">follow-ups</div></div>
-    <div class="vh1 abs" style="top:0;left:0;right:0" ${at(4.9, 11.9)}>${em('Fix the *zero* tonight.')}</div>
+    <div class="vh1 abs" style="top:0;left:0;right:0" ${at(4.9, 11.9)}>${em('Fix the *zero* tonight')}</div>
     <div class="abs" style="top:300px;left:60px;right:0" ${at(5.5, 11.9)}>
       <div class="vbubble"><span data-type="5.8" data-tdur="3.9" data-text="${esc(msg)}"></span></div>
       <div class="receipt" style="text-align:right;font-size:28px;margin-top:12px" ${at(9.9, 11.9, fade)}>Delivered</div>
     </div>
     <div class="vh1 abs" style="top:800px;left:0;right:0;font-size:80px" ${at(10.5, 11.9)}>1 down. <em>46</em> to go.</div>
-    ${endcard(11.9, 'Remembers *where you met*.', 'Coming to iOS in January.')}`,
+    ${endcard(11.9, 'Remembers *where you met*', 'Coming to iOS in January.')}`,
   alt: `Conference math: 1 conference, 47 new contacts, 0 follow-ups. Fix the zero tonight. A text being typed: “${msg}” Delivered. 1 down, 46 to go. NET-MAX: remembers where you met. Coming to iOS in January.`,
 };
 

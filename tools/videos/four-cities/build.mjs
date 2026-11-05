@@ -46,22 +46,18 @@ const SEG = 3; // seconds per shot; 4 shots + end card = 15 s
 // ---- overlays (transparent PNGs) ----
 const css = `file://${path.resolve(here, '../video.css')}`;
 const overlay = (s) => `<div class="stage" style="background:transparent;--noise-opacity:0">
-  <div style="position:absolute;inset:0 0 auto 0;height:760px;background:linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,0))"></div>
   <div class="zone">
-    <div style="display:flex;gap:14px;align-items:center">
-      <span class="vlabel" style="color:#fff;opacity:.85">${s.you ? 'You are here' : 'Your friend is here'}</span>
-    </div>
-    <div class="vh1" style="color:#fff;font-size:110px;margin-top:14px;text-shadow:0 2px 24px rgba(0,0,0,.35)">${s.city}</div>
+    <div class="vh1" style="color:#fff;font-size:110px;margin-top:14px;text-shadow:0 2px 18px #000">${s.city}</div>
     <div style="display:flex;gap:22px;align-items:baseline;margin-top:18px">
-      <span style="font-family:var(--f-mono);font-size:72px;font-weight:600;color:#39ff88">${s.t}</span>
-      ${s.tomorrow ? '<span style="font-family:var(--f-mono);font-size:30px;color:#fff;opacity:.8">TOMORROW</span>' : ''}
+      <span style="font-family:var(--f-mono);font-size:72px;font-weight:600;color:#39ff88;text-shadow:0 2px 12px #000">${s.t}</span>
+      ${s.tomorrow ? '<span style="font-size:34px;color:#fff;text-shadow:0 2px 12px #000">tomorrow</span>' : ''}
     </div>
-    <div style="margin-top:22px;display:inline-flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:30px;text-transform:uppercase;letter-spacing:.06em;color:${s.awake ? '#03140a' : '#fff'};background:${s.awake ? '#39ff88' : 'rgba(255,255,255,.18)'};padding:10px 22px">${s.awake ? 'awake' : 'asleep'}</div>
-    ${s.ai ? '<div style="position:absolute;left:0;bottom:0;font-family:var(--f-mono);font-size:24px;color:#fff;background:rgba(0,0,0,.45);padding:8px 16px;letter-spacing:.04em">AI-GENERATED FOOTAGE</div>' : ''}
+    <div style="margin-top:18px;font-size:40px;font-weight:600;color:${s.awake ? '#39ff88' : '#fff'};text-shadow:0 2px 12px #000">${s.awake ? 'Awake' : 'Asleep'}</div>
+    ${s.ai ? '<div style="position:absolute;left:0;bottom:0;font-size:26px;color:#fff;background:#000;padding:8px 16px">AI-generated footage</div>' : ''}
   </div></div>`;
 const endcard = `<div class="stage"><div class="zone"><div class="endcard">
   ${logo(true)}
-  <div class="vh1"><em>${up} of your ${friends.length}</em> friends can reply right now.</div>
+  <div class="vh1"><em>${up} of your ${friends.length}</em> friends can reply right now</div>
   <div class="vsub">NET-MAX shows everyone’s local time next to their name. Coming to iOS in January.</div>
   <div class="handle">@networkingmaxxing · @netmaxapp</div>
 </div></div></div>`;

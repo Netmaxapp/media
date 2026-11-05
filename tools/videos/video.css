@@ -21,7 +21,7 @@
 .theme-grid {
   --bg: #f6f5ef; --surface: #ffffff; --surface-2: #eceae1; --line: #d9d5c8;
   --text: #121212; --body: #34322c; --muted: #77736a; --dim: #aaa597;
-  --green: #0b7d3e; --green-ink: #ffffff; --green-soft: rgba(57,255,136,.6); --green-line: rgba(11,125,62,.4);
+  --green: #0b7d3e; --green-ink: #ffffff; --green-soft: #85fbb1; --green-line: #98c5a8;
   --logo-bar: #22d16c; --noise-invert: 1; --noise-opacity: 0.04;
   --head-weight: 800;
 }
@@ -30,7 +30,7 @@
   background-image: linear-gradient(#e6e3d8 2px, transparent 2px), linear-gradient(90deg, #e6e3d8 2px, transparent 2px);
   background-size: 54px 54px; background-position: -2px -2px;
 }
-.theme-grid .vh1 em { color: var(--text); background: linear-gradient(transparent 55%, rgba(57,255,136,.8) 55%, rgba(57,255,136,.8) 92%, transparent 92%); padding: 0 6px; }
+.theme-grid .vh1 em { color: var(--text); background: linear-gradient(transparent 55%, #5ffd9d 55%, #5ffd9d 92%, transparent 92%); padding: 0 6px; }
 
 /* 2x2 matrix */
 .matrix { position: absolute; left: 0; right: 0; top: 300px; height: 860px; }

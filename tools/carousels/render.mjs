@@ -57,9 +57,8 @@ if (lintErrors.length) { console.error('Copy lint failed:\n' + lintErrors.join('
 
 // ---------- 3. html ----------
 function slideHtml(s, fmt, theme = 'night') {
-  const top = s.cover || s.cta
-    ? `<div class="row-top">${logo(s.cta)}${s.cover && s.label ? label(s.label, 'muted') : ''}</div>`
-    : `<div class="row-top">${label(s.label || '')}${s.right || ''}</div>`;
+  // No eyebrows (NO_SLOP_LIST.md #13): only the logo sits above the headline, on the cover and the CTA.
+  const top = s.cover || s.cta ? `<div class="row-top">${logo(s.cta)}</div>` : '';
   const H = s.hTag || (s.cover || s.cta ? 'h1' : 'h2');
   const hCls = s.hCls || '';
   const text = `<div class="text">
@@ -81,7 +80,7 @@ function slideHtml(s, fmt, theme = 'night') {
 
 // ---------- 4. alt text = the full slide text ----------
 const sentence = (x) => { x = String(x).trim(); return /[.?!”"]$/.test(x) ? x : x + '.'; };
-export const altText = (s, fmt) => [s.label, s.h, s.body, s.alt, s.cta ? CTA[fmt] : '', s.foot]
+export const altText = (s, fmt) => [s.h, s.body, s.alt, s.cta ? CTA[fmt] : '', s.foot]
   .filter(Boolean).map((x) => sentence(plain(x))).join(' ');
 
 // ---------- 5. render ----------

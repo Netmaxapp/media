@@ -16,8 +16,8 @@
   --dim: #56655b;
   --green: #39ff88;
   --green-ink: #03140a;
-  --green-soft: rgba(57, 255, 136, 0.13);
-  --green-line: rgba(57, 255, 136, 0.45);
+  --green-soft: #0c2917;
+  --green-line: #1c7840;
   /* everything below is overridden per theme */
   --logo-bar: #39ff88;
   --bubble-in-bg: #1b261f;
@@ -26,8 +26,8 @@
   --land: #16231b; --land-stroke: #2e4236;
   --noise-invert: 0; --noise-opacity: 0.07;
   --head-weight: 700; --head-track: -0.025em; --head-stretch: 100%; --head-vs: 'opsz' 96;
-  --tier-A: rgba(57,255,136,.78); --tier-B: rgba(57,255,136,.58);
-  --tier-C: rgba(57,255,136,.4); --tier-D: rgba(57,255,136,.25); --tier-F: #2a332d;
+  --tier-A: #2ec96b; --tier-B: #239851;
+  --tier-C: #1a6b3a; --tier-D: #124626; --tier-F: #2a332d;
   --f-head: 'Bricolage Grotesque', 'Inter', sans-serif;
   --f-body: 'Inter', sans-serif;
   --f-mono: 'JetBrains Mono', monospace;
@@ -354,21 +354,21 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 .theme-paper {
   --bg: #f3f0e8; --surface: #fffdf8; --surface-2: #ebe6da; --line: #ddd6c6;
   --text: #16130e; --body: #3d382f; --muted: #7b7466; --dim: #b0a898;
-  --green: #0b7d3e; --green-ink: #ffffff; --green-soft: rgba(57,255,136,.55); --green-line: rgba(11,125,62,.45);
+  --green: #0b7d3e; --green-ink: #ffffff; --green-soft: #8df8b3; --green-line: #8bbc9c;
   --logo-bar: #22d16c; --noise-invert: 1; --noise-opacity: 0.05;
   --f-head: 'Fraunces', serif; --head-weight: 600; --head-track: -0.02em; --head-vs: 'opsz' 144;
   --land: #e4ddcd; --land-stroke: #cfc6b3;
 }
-.theme-paper h1 em, .theme-paper h2 em { color: var(--text); background: linear-gradient(transparent 58%, rgba(57,255,136,.75) 58%, rgba(57,255,136,.75) 92%, transparent 92%); padding: 0 4px; }
+.theme-paper h1 em, .theme-paper h2 em { color: var(--text); background: linear-gradient(transparent 58%, #68fba0 58%, #68fba0 92%, transparent 92%); padding: 0 4px; }
 .theme-paper .card { box-shadow: 0 2px 0 var(--line), 0 24px 50px rgba(60,48,20,.08); }
 .theme-paper .msg { font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 24; font-size: 33px; }
-.theme-paper .msg.focus .ln.on { color: var(--text); background: linear-gradient(transparent 4%, rgba(57,255,136,.6) 4%, rgba(57,255,136,.6) 96%, transparent 96%); box-shadow: none; border-left: 0; padding-left: 0; margin-left: 0; }
+.theme-paper .msg.focus .ln.on { color: var(--text); background: linear-gradient(transparent 4%, #83f9ae 4%, #83f9ae 96%, transparent 96%); box-shadow: none; border-left: 0; padding-left: 0; margin-left: 0; }
 
 /* --- airmail (Nov 7): navy, cream note cards, airmail stripe border --- */
 .theme-airmail {
   --bg: #15244d; --surface: #1d2f60; --surface-2: #263b72; --line: #344a82;
   --text: #f7f0e3; --body: #dcd4c4; --muted: #a8b3d0; --dim: #7280a8;
-  --green: #ff7452; --green-ink: #1a0d08; --green-soft: rgba(255,116,82,.16); --green-line: rgba(255,116,82,.5);
+  --green: #ff7452; --green-ink: #1a0d08; --green-soft: #3a314e; --green-line: #8a4c50;
   --bubble-out-bg: #f7f0e3; --bubble-out-ink: #15244d; --bubble-in-bg: #263b72;
   --land: #22366c; --land-stroke: #3a5290;
   --head-stretch: 75%; --head-weight: 800; --head-track: -0.01em;
@@ -385,7 +385,7 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 .theme-chat {
   --bg: #f2f2f7; --surface: #ffffff; --surface-2: #e9e9ef; --line: #dcdce3;
   --text: #0b0b0f; --body: #3a3a42; --muted: #8a8a93; --dim: #b8b8c0;
-  --green: #0a8f45; --green-ink: #ffffff; --green-soft: rgba(57,255,136,.25); --green-line: rgba(10,143,69,.4);
+  --green: #0a8f45; --green-ink: #ffffff; --green-soft: #c4f5db; --green-line: #95cab0;
   --bubble-out-bg: #39ff88; --bubble-out-ink: #03140a; --bubble-in-bg: #e5e5ea; --bubble-in-ink: #0b0b0f;
   --ph-a: #c9f7dc; --ph-b: #b6f2cf;
   --logo-bar: #22d16c; --noise-opacity: 0;
@@ -406,9 +406,9 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 
 /* --- green (Nov 12): full brand green, black type --- */
 .theme-green {
-  --bg: #39ff88; --surface: #ffffff; --surface-2: #e3ffee; --line: rgba(3,20,10,.16);
+  --bg: #39ff88; --surface: #ffffff; --surface-2: #e3ffee; --line: #30d974;
   --text: #03140a; --body: #0f3320; --muted: #1f5a37; --dim: #3c8a5c;
-  --green: #03140a; --green-ink: #39ff88; --green-soft: rgba(3,20,10,.08); --green-line: rgba(3,20,10,.4);
+  --green: #03140a; --green-ink: #39ff88; --green-soft: #35ec7e; --green-line: #23a156;
   --bubble-out-bg: #03140a; --bubble-out-ink: #39ff88;
   --logo-bar: #03140a; --noise-invert: 1; --noise-opacity: 0.06;
   --land: #2ee07a; --land-stroke: #1fb862;
@@ -426,7 +426,7 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 .theme-notebook {
   --bg: #fbfaf3; --surface: #ffffff; --surface-2: #f1f4fa; --line: #d6dde9;
   --text: #1c2340; --body: #2f3657; --muted: #6b7290; --dim: #9ba1b8;
-  --green: #2a52c9; --green-ink: #ffffff; --green-soft: rgba(57,255,136,.55); --green-line: rgba(42,82,201,.4);
+  --green: #2a52c9; --green-ink: #ffffff; --green-soft: #90fdb8; --green-line: #a7b7e2;
   --logo-bar: #22d16c; --noise-invert: 1; --noise-opacity: 0.04;
   --f-head: 'Bricolage Grotesque', 'Inter', sans-serif; --head-weight: 800; --head-track: -0.03em; --head-vs: 'opsz' 96;
 }
@@ -437,8 +437,8 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
     repeating-linear-gradient(to bottom, transparent 0 62px, #d3e1ee 62px 64px);
 }
 .theme-notebook h1, .theme-notebook h2 { line-height: 1.04; }
-.theme-notebook h1 em, .theme-notebook h2 em { color: var(--text); background: linear-gradient(transparent 50%, rgba(57,255,136,.7) 50%, rgba(57,255,136,.7) 90%, transparent 90%); }
-.theme-notebook .plan .b.on { background: rgba(57,255,136,.75); border-color: transparent; }
+.theme-notebook h1 em, .theme-notebook h2 em { color: var(--text); background: linear-gradient(transparent 50%, #73fea8 50%, #73fea8 90%, transparent 90%); }
+.theme-notebook .plan .b.on { background: #6afea3; border-color: transparent; }
 .theme-notebook .plan .b.on .w, .theme-notebook .plan .b.on .x { color: var(--text); }
 .theme-notebook .card, .theme-notebook .plan .b { box-shadow: 0 2px 0 var(--line); }
 
@@ -446,8 +446,35 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 .theme-harvest {
   --bg: #2a1911; --surface: #3a2418; --surface-2: #4a2f20; --line: #5c3d2a;
   --text: #fbefdc; --body: #ead7bd; --muted: #c2a688; --dim: #8e7159;
-  --green: #f39a4c; --green-ink: #2a1911; --green-soft: rgba(243,154,76,.16); --green-line: rgba(243,154,76,.5);
+  --green: #f39a4c; --green-ink: #2a1911; --green-soft: #4a2e1a; --green-line: #8e5a2e;
   --logo-bar: #39ff88;
   --f-head: 'DM Serif Display', serif; --head-weight: 400; --head-track: -0.01em; --head-vs: normal;
 }
 .theme-harvest h1, .theme-harvest h2 { line-height: 1.02; }
+
+/* ===================================================================
+   No-slop overrides (NO_SLOP_LIST.md). These win over everything above.
+   =================================================================== */
+/* 4. no negative kerning; 18. no ALL CAPS */
+* { letter-spacing: normal !important; text-transform: none !important; }
+/* 17. no monospace: numbers use Inter's tabular figures instead */
+:root, [class*="theme-"] { --f-mono: 'Inter', sans-serif; }
+* { font-variant-numeric: tabular-nums; }
+/* 14. no grain / dither texture */
+:root, [class*="theme-"] { --noise-opacity: 0; }
+.canvas::before, .stage::before { display: none !important; }
+/* 8. no bordered containers; 6. no dividers */
+.card, .chip, .event .date, .tiers .t .c, .bar .track, .week .d, .plan .b, .contact .f,
+.clock .r, .check .i, .roles .ro, .roles .ro .x, .people .i, .people .av, .clist, .clist .row {
+  border: 0 !important; box-shadow: none !important;
+}
+.theme-paper .card, .theme-green .card, .theme-notebook .card, .theme-notebook .plan .b { box-shadow: none !important; }
+/* 1. no pills or tags: the "you" marker is plain text */
+.clock .r.you .city::after { background: none !important; color: var(--muted) !important; padding: 0 !important; font-family: var(--f-body) !important; }
+/* 7. no glow halos */
+.clist .rt.on .st { box-shadow: none !important; }
+/* 12. no numbering on lists or steps; 1. no tag-like chips */
+.roles .ro .n { display: none !important; }
+.tl .dot { color: transparent !important; font-size: 0 !important; width: 22px !important; height: 22px !important; margin-left: 17px; }
+.tiers .t .c { background: none !important; padding: 0 10px 0 0 !important; }
+.roles .ro { grid-template-columns: 1fr !important; }

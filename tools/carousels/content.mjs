@@ -85,13 +85,13 @@ const c1 = (() => {
         alt: `World clock at ${time(at, HOME)} Tuesday in Indianapolis: ` + coverRows.map((r) => `${r.city} ${r.t}${r.sub.includes('tomorrow') ? ' Wednesday' : ''}, ${r.awake ? 'awake' : 'asleep'}`).join('; ') + '.',
       },
       {
-        label: '01', h: 'Add their cities to your clock app',
+        h: 'Add their cities to your clock app',
         body: 'Then you can check what time it is for them before you hit send.',
         visual: `<div class="card">${C.settingsPath([{ os: 'iPhone', steps: ['Clock', 'World Clock', '+'] }, { os: 'Android', steps: ['Clock', 'Globe icon'] }])}</div>`,
         alt: 'iPhone: Clock, World Clock, plus. Android: Clock, globe icon.',
       },
       {
-        label: '02', h: 'Text into their morning',
+        h: 'Text into their morning',
         body: 'Messages that land overnight get buried under everything else they wake up to. Europe is up during your morning. Asia and Australia are up during your evening.',
         visual: C.conv([
           { k: 'If you send at', v: time(am, HOME), rows: rows(am, cities('London', 'Madrid', 'Sydney')) },
@@ -100,7 +100,7 @@ const c1 = (() => {
         alt: `At ${time(am, HOME)} your time: London ${time(am, tz('London'))}, Madrid ${time(am, tz('Madrid'))}, Sydney ${time(am, tz('Sydney'))} (asleep). At ${time(pm, HOME)}: Tokyo ${time(pm, tz('Tokyo'))}, Sydney ${time(pm, tz('Sydney'))}, Madrid ${time(pm, tz('Madrid'))} (asleep).`,
       },
       {
-        label: '03', h: 'Open with something only they’d get',
+        h: 'Open with something only they’d get',
         body: '“hey how are you” usually gets “good wbu.” A photo, a song or a question about their life gives them something to answer.',
         visual: C.thread([
           { tag: 'Gets “good wbu”' }, { text: 'hey how are you!!', ghost: true },
@@ -110,13 +110,13 @@ const c1 = (() => {
         alt: 'Example: “hey how are you!!” gets “good wbu.” Better: “walked past a döner place and thought of you. is the one by your old flat still the best in berlin?”',
       },
       {
-        label: '04', h: 'Save their birthday on their clock',
+        h: 'Save their birthday on their clock',
         body: 'If they’re in Tokyo, their birthday starts around 10 a.m. the day before, your time. Set the reminder for then.',
         visual: `<div class="card">${C.event({ mo: 'Mar', dd: '3', title: 'Kenji’s birthday', when: `${time(bday, HOME)} · reminder`, sub: 'It’s already March 4 in Tokyo' })}</div>`,
         alt: `Calendar reminder: Kenji’s birthday, March 3 at ${time(bday, HOME)}. It’s already March 4 in Tokyo.`,
       },
       {
-        label: '05', h: 'Put a month on the visit',
+        h: 'Put a month on the visit',
         body: '“We should visit sometime” has no date, so nobody books anything. Name a month and they can answer yes or no.',
         visual: C.thread([
           { text: 'we should visit sometime!!', ghost: true },
@@ -126,13 +126,13 @@ const c1 = (() => {
         alt: 'Instead of “we should visit sometime!!”, try: “i’m looking at flights to madrid for march. are you around the week of the 15th?”',
       },
       {
-        label: '06', h: 'Send voice notes when your hours don’t overlap',
+        h: 'Send voice notes when your hours don’t overlap',
         body: 'Thirty seconds of you talking. They can listen on the way to class and answer when they’re free.',
         visual: `<div class="thread">${C.voice('0:31')}<div class="meta r">sent ${time(vn, HOME)} · it’s ${time(vn, tz('Tokyo'))} in Tokyo</div></div>`,
         alt: `A 31-second voice note sent at ${time(vn, HOME)}, when it’s ${time(vn, tz('Tokyo'))} in Tokyo.`,
       },
       {
-        label: '07', h: 'Check who’s there before you travel',
+        h: 'Check who’s there before you travel',
         body: 'Spring break, a semester abroad, a long layover. Look up who you know in the city before you make plans.',
         visual: `<div class="card"><div class="card-title">People you know in Barcelona</div>${C.people([{ text: 'Marta', sub: 'study abroad, spring 2025' }, { text: 'Theo', sub: 'your roommate’s cousin' }, { text: 'Coach Díaz', sub: 'moved back home in 2023' }])}</div>`,
         alt: 'List: people you know in Barcelona. Marta, study abroad spring 2025. Theo, your roommate’s cousin. Coach Díaz, moved back home in 2023.',
@@ -245,42 +245,42 @@ const c3 = (() => {
     slug: 'study-abroad-people', theme: 'airmail', date: '2026-11-07', due: '2026-11-07T11:00:00-05:00',
     slides: [
       {
-        cover: true, label: 'Semester abroad', h: 'Before you fly home, *message these 5 people*', hCls: 'm',
+        cover: true, h: 'Before you fly home, *message these 5 people*', hCls: 'm',
         body: 'For anyone finishing a semester abroad in December. What to send each one is on the next slides.',
         visual: C.roles(people), alt: 'The five people: ' + people.join(', ') + '.',
       },
       {
-        label: '01', h: 'The local who showed you around',
+        h: 'The local who showed you around',
         body: 'Thank them for something specific, and offer to return the favor.',
         visual: C.thread([{ text: 'thank you for taking me to the market my first weekend. if you ever come to the US, i’m giving the tour next' }]),
         alt: 'Message: “thank you for taking me to the market my first weekend. if you ever come to the US, i’m giving the tour next”',
       },
       {
-        label: '02', h: 'Your weekend-trip person',
+        h: 'Your weekend-trip person',
         body: 'Pick the next trip before you leave, even if it’s a year out. Write it down somewhere you’ll both see it.',
         visual: C.thread([{ text: 'lisbon, summer 2027? putting it in our shared notes so neither of us can pretend we forgot' }]),
         alt: 'Message: “lisbon, summer 2027? putting it in our shared notes so neither of us can pretend we forgot”',
       },
       {
-        label: '03', h: 'The friend from another program',
+        h: 'The friend from another program',
         body: 'They’re going home to a different country than you. Get their number and their home city before the last week, when everyone’s packing.',
         visual: C.thread([{ text: 'what’s your real number? and where’s home exactly, so i know where i’m visiting' }]),
         alt: 'Message: “what’s your real number? and where’s home exactly, so i know where i’m visiting”',
       },
       {
-        label: '04', h: 'Your host family or professor',
+        h: 'Your host family or professor',
         body: 'Write a real thank-you before you go, by hand if you can. They’re also who you’ll want to ask for a reference later.',
         visual: `<div style="padding:0 18px 18px">${C.paper(['Thank you for every dinner, and for correcting my Spanish without making it weird.', 'I’ll write from Indiana.', 'Sam'])}</div>`,
         alt: 'Handwritten note: “Thank you for every dinner, and for correcting my Spanish without making it weird. I’ll write from Indiana. Sam”',
       },
       {
-        label: '05', h: 'The 3 a.m. kitchen friend',
+        h: 'The 3 a.m. kitchen friend',
         body: 'Once you’re home you’ll be hours apart. Pick a call time now that works on both clocks.',
         visual: `${C.thread([{ text: 'sunday calls? 11 my time, 5 yours' }])}<div class="card" style="margin-top:26px"><div class="card-title">Sundays</div>${C.clock(rows(call, cities('Indianapolis', 'Berlin')).map((r) => ({ ...r, sub: r.city === 'Indianapolis' ? 'you' : 'them' })))}</div>`,
         alt: `Message: “sunday calls? 11 my time, 5 yours.” Sundays: Indianapolis ${time(call, HOME)}, Berlin ${time(call, tz('Berlin'))}. Both awake.`,
       },
       {
-        label: 'One more thing', h: 'Message them one-on-one',
+        h: 'Message them one-on-one',
         body: 'The program group chat goes quiet once everyone’s home. Send these yourself, before your flight if you can.',
         visual: `<div class="card"><div class="card-title">Before my flight</div>${C.checklist(people.map((p) => ({ text: p })))}</div>`,
         alt: 'Checklist titled “Before my flight” with the five people.',
@@ -327,7 +327,7 @@ const c4 = (() => {
         alt: 'Two example texts: “random, but i finally tried the hot sauce you wouldn’t stop talking about. you were right” and “no reason, i just miss our tuesday trivia nights. call this week?”',
       },
       ...texts.map((x, i) => ({
-        label: String(i + 1).padStart(2, '0'), h: x.h, hTag: 'h1', body: x.b, order: 'sandwich',
+        h: x.h, hTag: 'h1', body: x.b, order: 'sandwich',
         visual: C.thread(x.t),
         alt: `Text: “${x.t.find((i) => i.text).text}”`,
       })),
@@ -397,7 +397,7 @@ const c5 = (() => {
   const tierSlide = (k, h, body, barCities) => {
     const t = TIERS.find((x) => x.k === k);
     return {
-      label: `${k} tier · ${t.hrs.replace('h', ' hours')}`, h, body, visual: bars(...barCities), accent: `var(--tier-${k})`,
+      h: `${k} tier: ${/^(Same|Your|Exactly)/.test(h) ? h[0].toLowerCase() + h.slice(1) : h}`, body, visual: bars(...barCities), accent: `var(--tier-${k})`,
       alt: `Cities in this tier: ${t.cities.join(', ')}. ` + barCities.map((c) => `${c}: both awake ${ov[c].blocks.map((b) => `${hourLabel(b.start)} to ${hourLabel(b.end)}`).join(' and ')}, Indianapolis time`).join('. ') + '.',
     };
   };
@@ -405,8 +405,8 @@ const c5 = (() => {
     slug: 'time-zones-ranked', theme: 'tier', date: '2026-11-10', due: '2026-11-10T19:00:00-05:00',
     slides: [
       {
-        cover: true, label: 'Tier list · from Indianapolis', h: 'Time zones, ranked by how hard it is to *text your friends*', hCls: 's',
-        body: 'We counted the longest stretch you’re both awake, 8 a.m. to 11 p.m., in November.',
+        cover: true, h: 'Time zones, ranked by how hard it is to *text your friends*', hCls: 's',
+        body: 'From Indianapolis, in November. We counted the longest stretch you’re both awake, 8 a.m. to 11 p.m.',
         visual: C.tierChart(TIERS),
         alt: 'Tier list. ' + TIERS.map((t) => `${t.k} tier (${t.hrs}): ${t.cities.join(', ')}`).join('. ') + '.',
       },
@@ -461,13 +461,13 @@ const c6 = (() => {
     slug: 'landing-somewhere-new', theme: 'green', date: '2026-11-12', due: '2026-11-12T19:00:00-05:00',
     slides: [
       {
-        cover: true, label: 'Moving in January', h: 'New city? Start with who you *already know* there', hCls: 's',
+        cover: true, h: 'New city? Start with who you *already know* there', hCls: 's',
         body: 'For an internship, a semester or a first job. From four weeks out to your first month.',
         visual: `<div class="card">${C.timeline(steps)}</div>`,
         alt: 'Timeline: ' + steps.map((s) => `${s.when}: ${s.what}`).join('. ') + '.',
       },
       {
-        label: steps[0].when, right: prog(0), h: 'Make the list',
+        h: `${steps[0].when}: make the list`,
         body: 'Search your Instagram follows, LinkedIn and old group chats for the city. Ask your parents too. Write down anyone with a tie to it, even a loose one.',
         visual: `<div class="card"><div class="card-title">People I know in Madrid</div>${C.checklist([
           { text: 'Lucía', sub: 'exchange student, freshman year' },
@@ -478,25 +478,25 @@ const c6 = (() => {
         alt: 'List titled “People I know in Madrid”: Lucía, exchange student from freshman year. Coach’s former player, works there now. Ben’s older sister, moved there in 2024. Mom’s college roommate.',
       },
       {
-        label: steps[1].when, right: prog(1), h: 'Send each one a question',
+        h: `${steps[1].when}: send each one a question`,
         body: 'Ask them something about the city. Anyone who lives there can answer that, even if they barely know you.',
         visual: C.thread([{ text: 'hi! i’m moving to madrid in january for a semester. any tips for the first week?' }]),
         alt: 'Message: “hi! i’m moving to madrid in january for a semester. any tips for the first week?”',
       },
       {
-        label: steps[2].when, right: prog(2), h: 'Ask for one intro',
+        h: `${steps[2].when}: ask for one intro`,
         body: 'Go back to whoever answered. If they name someone, ask if they’d connect you over text.',
         visual: C.thread([{ text: 'this is so helpful, thank you!! is there one person you think i should meet there?' }]),
         alt: 'Message: “this is so helpful, thank you!! is there one person you think i should meet there?”',
       },
       {
-        label: steps[3].when, right: prog(3), h: 'Book one coffee',
+        h: `${steps[3].when}: book one coffee`,
         body: 'Put a day and a place in the first message so there’s nothing left to figure out.',
         visual: C.thread([{ text: 'just landed! free thursday after 4? there’s a café two blocks from my place' }]),
         alt: 'Message: “just landed! free thursday after 4? there’s a café two blocks from my place”',
       },
       {
-        label: steps[4].when, right: prog(4), h: 'Keep up with home too',
+        h: `${steps[4].when}: keep up with home too`,
         body: `Set a repeating reminder to text two people from home. 7 p.m. on a Sunday in Madrid is ${time(rem, HOME).replace(':00', '').replace(' PM', ' p.m.')} in Indiana, so they’re awake.`,
         visual: `<div class="card">${C.event({ mo: 'Repeats', dd: 'Sun', title: 'Text 2 people from home', when: `Every other Sunday · ${time(rem, tz('Madrid'))}`, sub: `${time(rem, HOME)} in Indianapolis` })}</div>`,
         alt: `Repeating reminder: text 2 people from home, every other Sunday at ${time(rem, tz('Madrid'))} Madrid time, ${time(rem, HOME)} in Indianapolis.`,
@@ -545,23 +545,23 @@ const c7 = (() => {
     slug: 'between-practice', theme: 'notebook', date: '2026-11-14', due: '2026-11-14T11:00:00-05:00',
     slides: [
       {
-        cover: true, label: 'Build log', h: 'Building an app between *practice and class*', hCls: 'm',
+        cover: true, h: 'Building an app between *practice and class*', hCls: 'm',
         body: 'Two student-athletes, one frat house, zero free time. This is how a week works.',
         visual: C.plan(blocks),
         alt: 'Weekly schedule: 6:30 AM practice. Class during the day. Building at night. One meeting on Sunday.',
       },
       {
-        label: '6:30 AM', h: 'Practice first',
+        h: 'Practice at 6:30 a.m.',
         body: 'Training doesn’t move for a startup. The app gets whatever hours are left.',
         visual: C.plan(blocks, 0), alt: 'Schedule with 6:30 AM practice highlighted.',
       },
       {
-        label: 'Class', h: 'Ideas start in the margins',
+        h: 'Class: ideas start in the margins',
         body: 'The notebook is full of globe sketches. Ideas start there and get built at night.',
         visual: sketch, alt: 'A lined notebook page with three hand-drawn globe sketches.',
       },
       {
-        label: 'Night', h: 'Building',
+        h: 'At night, we build',
         body: 'Claude helps us write the code and draft content, including posts like this one. Nothing goes out until we’ve checked it.',
         visual: `<div class="card">${C.timeline([
           { dot: '1', when: 'Us', what: 'Decide what to build' },
@@ -571,13 +571,13 @@ const c7 = (() => {
         alt: 'Steps: Us, decide what to build. Claude, helps write the code and first drafts. Us, check everything before it ships.',
       },
       {
-        label: 'Sunday', h: 'One meeting, every week',
+        h: 'One meeting, every Sunday',
         body: 'Same three questions every time. We run it like partners at a real firm.',
         visual: `<div class="card"><div class="card-title">Sunday meeting</div>${C.checklist([{ text: 'What shipped?' }, { text: 'What didn’t?' }, { text: 'What’s next?' }])}</div>`,
         alt: 'Sunday meeting agenda: What shipped? What didn’t? What’s next?',
       },
       {
-        label: 'Why', h: 'We kept losing people', hTag: 'h1', hCls: 's',
+        h: 'We kept losing people', hTag: 'h1', hCls: 's',
         body: 'Friends from trips, teams and semesters abroad, spread across time zones. NET-MAX is the app we wanted for ourselves.', bodyCls: 'l',
         visual: '', alt: '',
       },
@@ -622,37 +622,37 @@ const c8 = (() => {
     slug: 'before-you-go-home', theme: 'harvest', date: '2026-11-15', due: '2026-11-15T11:00:00-05:00',
     slides: [
       {
-        cover: true, label: 'Thanksgiving · Thu Nov 26', h: 'Going home for Thanksgiving? *Text these people*', hCls: 'm',
-        body: 'Who to text, and which day to do it.',
+        cover: true, h: 'Going home for Thanksgiving? *Text these people*', hCls: 'm',
+        body: 'Thanksgiving is Thursday, Nov 26. Who to text, and which day to do it.',
         visual: `<div class="card">${cal()}</div>`,
         alt: 'Calendar from Sunday November 15 to Saturday November 28. Today is the 15th. Wednesday the 25th is the night before. Thursday the 26th is Thanksgiving.',
       },
       {
-        label: 'This week', h: 'High school friends',
+        h: 'This week: high school friends',
         body: 'Everyone’s home the same few days. Start the group text now and claim a night before the week fills up.',
         visual: C.thread([{ text: 'who’s home wednesday the 25th? pizza at the usual place?' }]),
         alt: 'Group text: “who’s home wednesday the 25th? pizza at the usual place?”',
       },
       {
-        label: 'This week', h: 'The friend who moved away',
+        h: 'This week: the friend who moved away',
         body: 'Ask if they’re home for break too. If your days overlap, put one on the calendar now. If they don’t, set up a call.',
         visual: C.thread([{ text: 'you home for thanksgiving? i’m back the 24th through the 29th' }]),
         alt: 'Message: “you home for thanksgiving? i’m back the 24th through the 29th”',
       },
       {
-        label: 'Over break', h: 'Your old coach or teacher',
+        h: 'Over break: your old coach or teacher',
         body: 'Stop by or send a note. Tell them one thing you’re working on and one thing they taught you that you still use.',
         visual: C.thread([{ text: 'coach! i’m home over break. could i stop by one day this week and say hi?' }]),
         alt: 'Message: “coach! i’m home over break. could i stop by one day this week and say hi?”',
       },
       {
-        label: 'Thursday', h: 'Friends abroad',
+        h: 'Thursday: friends abroad',
         body: 'It’s a normal Thursday for them. Send a photo from the table, but check their clock first. For Europe, send it before you sit down.',
         visual: C.conv([{ k: 'If dinner is at', v: time(dinner, HOME), rows: abroad }]),
         alt: `If dinner is at ${time(dinner, HOME)} in Indiana: ` + abroad.map((r) => `${r.city} ${r.t} ${r.sub.replace(' · tomorrow', '')}, ${r.awake ? 'awake' : 'asleep'}`).join('; ') + '.',
       },
       {
-        label: 'Thursday', h: 'Someone you lost touch with',
+        h: 'Thursday: someone you lost touch with',
         body: 'The holiday is the reason, so you don’t need another one.',
         visual: C.thread([{ text: 'happy thanksgiving! was thinking about you today. how’ve you been?' }]),
         alt: 'Message: “happy thanksgiving! was thinking about you today. how’ve you been?”',
