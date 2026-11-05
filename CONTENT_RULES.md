@@ -6,6 +6,21 @@ Every video and carousel goes through this list before it ships. The copy and de
 
 [`NO_SLOP_LIST.md`](NO_SLOP_LIST.md) lists 20 patterns we never use. They include pills, italics, Instrument Serif, tight kerning, dividers, bordered boxes, eyebrows, ALL CAPS, heavy mono, gradients, squircles and periods on headlines. Where any rule below conflicts with that list, the list wins.
 
+## Hallmark (design skill)
+
+Every new NET-MAX design goes through [Hallmark](https://github.com/Nutlope/hallmark). It's installed at `.claude/skills/hallmark`, copied from Nutlope/hallmark at commit `407fa68` (MIT).
+
+- **Web pages** (waitlist site, landing pages): run the full Hallmark flow: `/hallmark <prompt>`.
+- **Carousels and videos:** follow the Floor in `.claude/skills/hallmark/SKILL.md` wherever it applies to an image:
+  - Every colour and font comes from a token.
+  - No accented or italic word inside a headline.
+  - No eyebrows, tracked capitals or small caps.
+  - No middle-dot meta strings and no decorative status dots.
+  - No invented numbers.
+  - About 80 words per slide at most.
+  - Three font families at most.
+- **Before shipping,** run `node .claude/skills/hallmark/scripts/sloplint.mjs <file.css>` on any stylesheet you changed and fix what applies. Its web-only gates (focus rings, page stamp, overflow, `<title>`) don't apply to images and can be ignored.
+
 ## Editing rules
 
 **Core principle:** skip the editing habits AI tools repeat on every video. Pick classic, brand-consistent choices instead. These six rules beat everything else on this page. [`VIDEO_STYLE.md`](VIDEO_STYLE.md) turns them into exact specs.

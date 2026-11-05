@@ -18,3 +18,7 @@ Most useful here:
 - `/ig-caption`: shows what the feed displays before "... more" (`caption.py`).
 - `/ig-human`: humanizer and a 5-check score (`humanize.py`, `detect.py`).
 - `/ig-viral`, `/ig-audit`, `/ig-profile`, `/ig-plan`.
+
+## hallmark
+
+`hallmark/` is copied from [Nutlope/hallmark](https://github.com/Nutlope/hallmark) at commit `407fa68` (MIT, see `hallmark/LICENSE`), unchanged. `CONTENT_RULES.md` says how it applies to NET-MAX posts.
