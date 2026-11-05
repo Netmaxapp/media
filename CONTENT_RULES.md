@@ -2,7 +2,11 @@
 
 Every video and carousel goes through this list before it ships. The copy and design rules come from the November 2026 audit: the first batch of 8 carousels (59 slides) had all of these problems.
 
-## Editing rules (these come first)
+## The no-slop list (this comes first)
+
+[`NO_SLOP_LIST.md`](NO_SLOP_LIST.md) lists 20 patterns we never use. They include pills, italics, Instrument Serif, tight kerning, dividers, bordered boxes, eyebrows, ALL CAPS, heavy mono, gradients, squircles and periods on headlines. Where any rule below conflicts with that list, the list wins.
+
+## Editing rules
 
 **Core principle:** skip the editing habits AI tools repeat on every video. Pick classic, brand-consistent choices instead. These six rules beat everything else on this page. [`VIDEO_STYLE.md`](VIDEO_STYLE.md) turns them into exact specs.
 
