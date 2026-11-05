@@ -2,6 +2,10 @@
 
 Every video and carousel goes through this list before it ships. The copy and design rules come from the November 2026 audit: the first batch of 8 carousels (59 slides) had all of these problems.
 
+## The new-content-rules skill
+
+All of the rules below are packaged as one skill, `.claude/skills/new-content-rules`. It holds the Floor for every format and a checker: `node .claude/skills/new-content-rules/scripts/lint.mjs`. Use it for every post.
+
 ## The no-slop list (this comes first)
 
 [`NO_SLOP_LIST.md`](NO_SLOP_LIST.md) lists 20 patterns we never use. They include pills, italics, Instrument Serif, tight kerning, dividers, bordered boxes, eyebrows, ALL CAPS, heavy mono, gradients, squircles and periods on headlines. Where any rule below conflicts with that list, the list wins.
