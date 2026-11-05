@@ -5,8 +5,8 @@ These 20 design and writing patterns mark something as AI-generated. We don't us
 | # | Never | Do this instead |
 |---|---|---|
 | 1 | Tags and pills (rounded labels and chips) | Plain text, or a square highlight on the word itself |
-| 2 | Excessive italics | Upright type. Emphasis comes from brand green or the highlighter |
-| 3 | Instrument Serif | Our brand faces only: Bricolage Grotesque and Inter |
+| 2 | Excessive italics | Upright type. Headlines are one colour, with no single coloured or highlighted word |
+| 3 | Instrument Serif | Our brand faces only: Bricolage Grotesque, Inter and Fraunces |
 | 4 | Negative kerning (letters squeezed together) | Default letter spacing, 0 or more |
 | 5 | Over-detailed UI | Show only the part that carries the point |
 | 6 | Too many dividers | Use space to separate things, not lines |

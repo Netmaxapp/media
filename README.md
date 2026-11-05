@@ -29,4 +29,4 @@ node render.mjs --only 5-texts --fmt ig # one carousel, one format
 
 The build fails if a time in the copy disagrees with the tz math, or if the copy breaks a rule in `CONTENT_RULES.md`.
 
-Map data: Natural Earth (public domain). Fonts (all SIL OFL, licenses in `tools/carousels/fonts`): Bricolage Grotesque, Fraunces, DM Serif Display, Poppins, Inter, JetBrains Mono.
+Map data: Natural Earth (public domain). Fonts (all SIL OFL, licenses in `tools/carousels/fonts`): Bricolage Grotesque, Inter and Fraunces. Three families, per Hallmark.

@@ -1,9 +1,6 @@
 @import url(fonts/bricolage.css);
-@import url(fonts/poppins.css);
 @import url(fonts/inter.css);
-@import url(fonts/jbmono.css);
 @import url(fonts/fraunces.css);
-@import url(fonts/dmserif.css);
 
 :root {
   --bg: #050906;
@@ -30,7 +27,8 @@
   --tier-C: #1a6b3a; --tier-D: #124626; --tier-F: #2a332d;
   --f-head: 'Bricolage Grotesque', 'Inter', sans-serif;
   --f-body: 'Inter', sans-serif;
-  --f-mono: 'JetBrains Mono', monospace;
+  --f-brand: 'Bricolage Grotesque', 'Inter', sans-serif; /* logo wordmark, same in every theme */
+  --f-mono: 'Inter', sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -55,7 +53,7 @@ body { -webkit-font-smoothing: antialiased; font-family: var(--f-body); color: v
 /* ---------- chrome ---------- */
 .row-top, .text, .foot { flex-shrink: 0; }
 .row-top { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
-.logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.01em; color: var(--text); display: inline-flex; align-items: center; line-height: 1; }
+.logo { font-family: var(--f-brand); font-weight: 800; font-size: 40px; letter-spacing: -0.01em; color: var(--text); display: inline-flex; align-items: center; line-height: 1; }
 .logo i { display: inline-block; width: 30px; height: 7px; background: var(--logo-bar); margin: 0 7px; }
 .logo.big { font-size: 64px; }
 .logo.big i { width: 48px; height: 11px; margin: 0 11px; }
@@ -448,7 +446,7 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
   --text: #fbefdc; --body: #ead7bd; --muted: #c2a688; --dim: #8e7159;
   --green: #f39a4c; --green-ink: #2a1911; --green-soft: #4a2e1a; --green-line: #8e5a2e;
   --logo-bar: #39ff88;
-  --f-head: 'DM Serif Display', serif; --head-weight: 400; --head-track: -0.01em; --head-vs: normal;
+  --f-head: 'Fraunces', serif; --head-weight: 600; --head-track: 0; --head-vs: 'opsz' 144;
 }
 .theme-harvest h1, .theme-harvest h2 { line-height: 1.02; }
 
@@ -478,3 +476,8 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 .tl .dot { color: transparent !important; font-size: 0 !important; width: 22px !important; height: 22px !important; margin-left: 17px; }
 .tiers .t .c { background: none !important; padding: 0 10px 0 0 !important; }
 .roles .ro { grid-template-columns: 1fr !important; }
+
+/* Hallmark 38iii: never one accented word inside a headline. Headlines are one colour, one face. */
+h1 em, h2 em, .vh1 em, [class*="theme-"] h1 em, [class*="theme-"] h2 em, [class*="theme-"] .vh1 em {
+  color: inherit !important; background: none !important; padding: 0 !important; font-style: normal !important;
+}

@@ -26,7 +26,7 @@ Every new NET-MAX design goes through [Hallmark](https://github.com/Nutlope/hall
 **Core principle:** skip the editing habits AI tools repeat on every video. Pick classic, brand-consistent choices instead. These six rules beat everything else on this page. [`VIDEO_STYLE.md`](VIDEO_STYLE.md) turns them into exact specs.
 
 1. **Captions show 3 words at a time.** Never animate one word or one letter at a time.
-2. **No italic fonts.** Use our brand fonts (Bricolage Grotesque, Inter, JetBrains Mono, upright theme faces) or TikTok's Classic font. Emphasis is green or a highlighter, never italic.
+2. **No italic fonts.** Use our brand fonts (Bricolage Grotesque, Inter, Fraunces) or TikTok's Classic font. Headlines are one colour: no highlighted, coloured or italic word, never italic.
 3. **No stock emojis or generic icons on screen.** Use real screenshots (Clock, Messages, Maps, Calendar, the real NET-MAX build) or the data itself. Never generate a fake app screen.
 4. **Keep natural pauses in speech.** Shorten long silences, but don't strip every pause. Cut between sentences, never mid-phrase.
 5. **No "pop" on every element.** Use cut, fade, wipe or (once) rise. Use at most 3 moves per video. No scale, bounce or shake.
@@ -60,7 +60,7 @@ The build enforces rules 1, 2, 3, 5 and 6. `tools/carousels/guard.mjs` and the v
 ## Design
 
 1. **No glow, no neon gradients, no globe wallpaper.** Every visual has to carry information: clocks, times, messages, calendars, data. If you can delete the image without losing anything, delete it.
-2. **Each carousel gets its own theme** that fits its topic. A theme is a palette, a headline face and one signature detail: paper and highlighter for a writing guide, an airmail border for study abroad, a messages-app look for texts. The logo, handle, body font, type scale and margins stay the same everywhere. Two carousels in a row should never look alike in the grid, so alternate dark and light.
+2. **Each carousel gets its own theme** that fits its topic. A theme is a palette, a headline face and one signature detail: paper for a writing guide, an airmail border for study abroad, a messages-app look for texts. The logo, handle, body font, type scale and margins stay the same everywhere. Two carousels in a row should never look alike in the grid, so alternate dark and light.
 3. **Use sentence-case headlines.** Use the mono font only for times, dates and labels.
 4. **Use one flat accent color per carousel.** Brand green `#39FF88` shows up in every theme, at least in the logo bar.
 5. **Put the handle small on every slide** so screenshots still credit us. Put the logo on the cover and the last slide only. No page counters, because the platforms already show dots.

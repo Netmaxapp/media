@@ -59,7 +59,7 @@ const endcard = `<div class="stage"><div class="zone"><div class="endcard">
   ${logo(true)}
   <div class="vh1"><em>${up} of your ${friends.length}</em> friends can reply right now</div>
   <div class="vsub">NET-MAX shows everyone’s local time next to their name. Coming to iOS in January.</div>
-  <div class="handle">@networkingmaxxing · @netmaxapp</div>
+  <div class="handle">@networkingmaxxing on Instagram<br>@netmaxapp on TikTok</div>
 </div></div></div>`;
 
 const browser = await chromium.launch();

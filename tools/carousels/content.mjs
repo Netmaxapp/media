@@ -9,7 +9,7 @@ const WEEKDAY = { Sun: 'Sunday', Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday'
 // "tomorrow"/"yesterday" relative to Indianapolis
 const rel = (at, tz) => {
   const ymd = (z) => new Intl.DateTimeFormat('en-CA', { timeZone: z }).format(at);
-  return ymd(tz) > ymd(HOME) ? ' · tomorrow' : ymd(tz) < ymd(HOME) ? ' · yesterday' : '';
+  return ymd(tz) > ymd(HOME) ? ', tomorrow' : ymd(tz) < ymd(HOME) ? ', yesterday' : '';
 };
 const rows = (at, cities, youName) => cities.map(([city, tz]) => ({
   city, sub: WEEKDAY[day(at, tz)] + rel(at, tz), t: time(at, tz), awake: awake(at, tz), you: city === youName,
@@ -112,7 +112,7 @@ const c1 = (() => {
       {
         h: 'Save their birthday on their clock',
         body: 'If they’re in Tokyo, their birthday starts around 10 a.m. the day before, your time. Set the reminder for then.',
-        visual: `<div class="card">${C.event({ mo: 'Mar', dd: '3', title: 'Kenji’s birthday', when: `${time(bday, HOME)} · reminder`, sub: 'It’s already March 4 in Tokyo' })}</div>`,
+        visual: `<div class="card">${C.event({ mo: 'Mar', dd: '3', title: 'Kenji’s birthday', when: `${time(bday, HOME)}, reminder`, sub: 'It’s already March 4 in Tokyo' })}</div>`,
         alt: `Calendar reminder: Kenji’s birthday, March 3 at ${time(bday, HOME)}. It’s already March 4 in Tokyo.`,
       },
       {
@@ -128,7 +128,7 @@ const c1 = (() => {
       {
         h: 'Send voice notes when your hours don’t overlap',
         body: 'Thirty seconds of you talking. They can listen on the way to class and answer when they’re free.',
-        visual: `<div class="thread">${C.voice('0:31')}<div class="meta r">sent ${time(vn, HOME)} · it’s ${time(vn, tz('Tokyo'))} in Tokyo</div></div>`,
+        visual: `<div class="thread">${C.voice('0:31')}<div class="meta r">sent ${time(vn, HOME)}, it’s ${time(vn, tz('Tokyo'))} in Tokyo</div></div>`,
         alt: `A 31-second voice note sent at ${time(vn, HOME)}, when it’s ${time(vn, tz('Tokyo'))} in Tokyo.`,
       },
       {
@@ -168,7 +168,7 @@ const c2 = (() => {
     'I read the warehouse robotics article you mentioned. The part about night shifts was new to me.',
     'I’ll be in Chicago over winter break. Could I buy you a coffee one morning? Twenty minutes is plenty.',
   ];
-  const m = (focus) => C.msg({ to: 'To: Priya · LinkedIn message', lines, sig: 'Sam', focus });
+  const m = (focus) => C.msg({ to: 'To: Priya, LinkedIn message', lines, sig: 'Sam', focus });
   return {
     slug: 'after-the-conference', theme: 'paper', date: '2026-11-05', due: '2026-11-05T19:00:00-05:00',
     slides: [
@@ -498,7 +498,7 @@ const c6 = (() => {
       {
         h: `${steps[4].when}: keep up with home too`,
         body: `Set a repeating reminder to text two people from home. 7 p.m. on a Sunday in Madrid is ${time(rem, HOME).replace(':00', '').replace(' PM', ' p.m.')} in Indiana, so they’re awake.`,
-        visual: `<div class="card">${C.event({ mo: 'Repeats', dd: 'Sun', title: 'Text 2 people from home', when: `Every other Sunday · ${time(rem, tz('Madrid'))}`, sub: `${time(rem, HOME)} in Indianapolis` })}</div>`,
+        visual: `<div class="card">${C.event({ mo: 'Repeats', dd: 'Sun', title: 'Text 2 people from home', when: `Every other Sunday, ${time(rem, tz('Madrid'))}`, sub: `${time(rem, HOME)} in Indianapolis` })}</div>`,
         alt: `Repeating reminder: text 2 people from home, every other Sunday at ${time(rem, tz('Madrid'))} Madrid time, ${time(rem, HOME)} in Indianapolis.`,
       },
       {
@@ -649,7 +649,7 @@ const c8 = (() => {
         h: 'Thursday: friends abroad',
         body: 'It’s a normal Thursday for them. Send a photo from the table, but check their clock first. For Europe, send it before you sit down.',
         visual: C.conv([{ k: 'If dinner is at', v: time(dinner, HOME), rows: abroad }]),
-        alt: `If dinner is at ${time(dinner, HOME)} in Indiana: ` + abroad.map((r) => `${r.city} ${r.t} ${r.sub.replace(' · tomorrow', '')}, ${r.awake ? 'awake' : 'asleep'}`).join('; ') + '.',
+        alt: `If dinner is at ${time(dinner, HOME)} in Indiana: ` + abroad.map((r) => `${r.city} ${r.t} ${r.sub.replace(', tomorrow', '')}, ${r.awake ? 'awake' : 'asleep'}`).join('; ') + '.',
       },
       {
         h: 'Thursday: someone you lost touch with',

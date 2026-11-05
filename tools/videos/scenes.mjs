@@ -12,7 +12,7 @@ const endcard = (t, headline, sub) => `<div class="endcard">
   <div ${at(t)}>${logo(true)}</div>
   <div class="vh1" ${at(t)}>${em(headline)}</div>
   <div class="vsub" ${at(t + 0.6, null, fade)}>${esc(sub)}</div>
-  <div class="handle" ${at(t + 0.9, null, fade)}>@networkingmaxxing · @netmaxapp</div>
+  <div class="handle" ${at(t + 0.9, null, fade)}>@networkingmaxxing on Instagram<br>@netmaxapp on TikTok</div>
 </div>`;
 
 // ---------------------------------------------------------------------------
@@ -75,7 +75,7 @@ const contactsToClocks = {
       </div>
       ${contacts.map(([nm, last, tz, city], i) => {
         const t1 = SWAP + 0.3; // the whole column sweeps in at once
-        const after = tz ? `<span class="rt ${awake(NOW, tz) ? 'on' : 'off'}" ${at(t1, null, wipe + ' data-dur="0.7"')}>${esc(city)} · ${time(NOW, tz)}<i class="st"></i></span>`
+        const after = tz ? `<span class="rt ${awake(NOW, tz) ? 'on' : 'off'}" ${at(t1, null, wipe + ' data-dur="0.7"')}>${esc(city)}, ${time(NOW, tz)}<i class="st"></i></span>`
           : `<span class="rt off" ${at(t1, null, wipe + ' data-dur="0.7"')}>no idea</span>`;
         return `<div class="row" style="height:80px">
           <span class="nm">${esc(nm)}</span>
