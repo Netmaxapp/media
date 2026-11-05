@@ -25,11 +25,11 @@ const BANNED = [
   [/\bmost people\b|\balmost always\b|\bstudies show\b|\bresearch shows\b/i, 'unbacked generalization'],
   [/\b(stop scrolling|follow for more|tag someone|link in comments|you won['’]t believe|in today['’]s (video|post)|let['’]s dive in|buckle up)\b/i, 'creator cliché'],
   [/\bisn['’]t [^.!?\n]{1,40}, it['’]s\b|\bnot just\b|\bit['’]s not (about|just|only)\b/i, 'contrast formula'],
-  [/\bbeats?\b/i, 'contrast formula "X beats Y" (allowed only for a computed finding)'],
+  [/\bbeats?\b(?!\s*\d)/i, 'contrast formula "X beats Y" (allowed only for a computed finding)'],
 ];
 const ALLOW = [/sydney beats tokyo/gi];
 const EMOJI = /\p{Extended_Pictographic}/gu;
-const CAPS_OK = new Set(['NET-MAX', 'AI', 'US', 'UK', 'LA', 'NYC', 'iOS', 'TV', 'CS', 'MBA', 'PM', 'AM', 'QR', 'CTA', 'OK', 'D1']);
+const CAPS_OK = new Set(['EST', 'EDT', 'CST', 'PST', 'GMT', 'BST', 'UTC', 'JST', 'KST', 'NET-MAX', 'AI', 'US', 'UK', 'LA', 'NYC', 'iOS', 'TV', 'CS', 'MBA', 'PM', 'AM', 'QR', 'CTA', 'OK', 'D1']);
 
 function check(text, format) {
   const out = [];
@@ -75,7 +75,7 @@ function check(text, format) {
 
 const CTA = /waitlist|link in (our )?bio|NET-MAX (launches|is launching)|join (us|the)/i;
 function carousel(text) {
-  const slides = text.split(/^##\s+Slide\b.*$/m).slice(1).map((x) => x.replace(/\*\*(Headline|Body):\*\*\s*/g, '').replace(/^---\s*$/gm, '').trim());
+  const slides = text.split(/^##\s+Slide\b.*$/m).slice(1).map((x) => x.split(/^#{1,3}\s/m)[0].replace(/\*\*(Headline|Body|Mock text):\*\*\s*/g, '').replace(/^---\s*$/gm, '').trim());
   if (!slides.length) return [{ where: 'carousel', res: [['FAIL', 'no "## Slide" headings found']] }];
   return slides.map((t, i) => {
     const res = check(t, 'slide');
