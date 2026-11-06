@@ -107,8 +107,8 @@ h1 { font-family: 'Fraunces', serif; font-weight: 560; font-size: 96px; line-hei
 </div></body></html>`;
 
 const posts = [
-  { slug: '01-tokyo-call-window', html: tokyo },
-  { slug: '02-madrid-birthday-text', html: madrid },
+  { slug: '01-tokyo-call-window', html: tokyo, alt: "NET-MAX. Call Tokyo from Indianapolis between 6 and 11 PM. A chart of one Tuesday in Indianapolis, hour by hour, with a row for Indianapolis and a row for Tokyo. Both rows are green, meaning you're both awake, at 8 AM and from 6 to 11 PM Indianapolis time. Indianapolis, Tuesday: 6 to 11 PM. Tokyo, Wednesday: 8 AM to 1 PM. Mornings work too: 8 to 9 AM your time is 10 to 11 PM in Tokyo. Awake hours 8 AM to 11 PM. Holds until US clocks change Mar 14. @networkingmaxxing" },
+  { slug: '02-madrid-birthday-text', html: madrid, alt: "NET-MAX. Their birthday in Madrid starts Thursday at 6 PM your time. A text message bubble reads: happy birthday!! it's already the 20th over there. hope madrid is ready for you. Sent Thursday 6:00 PM in Indianapolis, midnight in Madrid. Madrid is 6 hours ahead. Send the first text at their midnight and it's waiting when they wake up on their birthday. Example: a birthday on Friday, Nov 20. Holds until US clocks change Mar 14. @networkingmaxxing" },
 ];
 
 const browser = await chromium.launch();
@@ -125,7 +125,6 @@ for (const p of posts) {
   if (families.length > 3) problems.push(`too many font families: ${families.join(', ')}`);
   if (problems.length) { bad++; console.log(`${p.slug}:\n  ${problems.join('\n  ')}`); }
   await page.screenshot({ path: path.join(out, `${p.slug}.png`), clip: { x: 0, y: 0, width: 1080, height: 1350 } });
-  p.alt = await page.evaluate(() => document.querySelector('.canvas').innerText.replace(/\n+/g, ' ').trim());
   console.log(`rendered ${p.slug}.png  fonts: ${families.join(', ')}`);
 }
 await browser.close();
