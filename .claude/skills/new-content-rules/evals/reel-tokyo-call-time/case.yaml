@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: reel-tokyo-call-time
+expected_outcome: |
+  reel.md is a 12-20 second Reel script with a plain hook on the first frame, correct Indianapolis/Tokyo times for the posting week, on-screen text free of slop, and one waitlist ask on the end card only.

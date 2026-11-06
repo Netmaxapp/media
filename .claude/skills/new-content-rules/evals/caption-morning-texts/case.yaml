@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: caption-morning-texts
+expected_outcome: |
+  Two captions in captions.md: an Instagram caption whose first line fits the feed preview, and a lowercase TikTok caption that says the waitlist is in the Instagram bio. Both follow NET-MAX copy rules.
