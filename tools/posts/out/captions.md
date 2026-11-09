@@ -34,3 +34,9 @@ Music: Space Jazz by Kevin MacLeod (incompetech.com), CC BY 4.0
 texting a friend abroad on their birthday: in madrid it starts at 6 PM the night before, indianapolis time. busy at 6? schedule it in messages with send later. NET-MAX launches on iOS in january, waitlist link is in our Instagram bio #studyabroadspain #longdistancefriends #timezones #birthdaytexts
 
 Music: Pleasant Porridge by Kevin MacLeod (incompetech.com), CC BY 4.0
+
+## TikTok: meme-14-hours-apart (video, not scheduled)
+
+friends in different time zones be like. 14 hours apart means one of you is always asleep, so the hours you're both awake are the good ones. NET-MAX shows everyone you know with their local time. launches on iOS in january, waitlist link is in our Instagram bio #longdistancefriends #timezones #studyabroad #bestfriends
+
+Music: Aerosol of my Love by Kevin MacLeod (incompetech.com), CC BY 4.0
