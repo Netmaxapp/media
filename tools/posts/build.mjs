@@ -19,12 +19,12 @@ fs.mkdirSync(out, { recursive: true });
 const TOKYO = 'Asia/Tokyo', DAY = '2026-11-10';
 const ov = overlap(TOKYO, DAY);
 expect('Tokyo long window', ov.blocks.map((b) => `${hourLabel(b.start)}-${hourLabel(b.end)}`).join(', '), '8 AM-9 AM, 6 PM-11 PM');
-expect('6 PM Indy in Tokyo', `${day(wall(`${DAY} 18:00`), TOKYO)} ${time(wall(`${DAY} 18:00`), TOKYO)}`, 'Wed 8:00 AM');
-expect('11 PM Indy in Tokyo', time(wall(`${DAY} 23:00`), TOKYO), '1:00 PM');
-expect('8 AM Indy in Tokyo', time(wall(`${DAY} 08:00`), TOKYO), '10:00 PM');
-expect('9 AM Indy in Tokyo', time(wall(`${DAY} 09:00`), TOKYO), '11:00 PM');
+expect('6 PM NYC in Tokyo', `${day(wall(`${DAY} 18:00`), TOKYO)} ${time(wall(`${DAY} 18:00`), TOKYO)}`, 'Wed 8:00 AM');
+expect('11 PM NYC in Tokyo', time(wall(`${DAY} 23:00`), TOKYO), '1:00 PM');
+expect('8 AM NYC in Tokyo', time(wall(`${DAY} 08:00`), TOKYO), '10:00 PM');
+expect('9 AM NYC in Tokyo', time(wall(`${DAY} 09:00`), TOKYO), '11:00 PM');
 
-// 24 one-hour cells across the Indianapolis day, two rows: who is awake at that moment.
+// 24 one-hour cells across the New York day, two rows: who is awake at that moment.
 const cells = Array.from({ length: 24 }, (_, h) => {
   const t = wall(`${DAY} ${String(h).padStart(2, '0')}:30`);
   const a = awake(t, HOME), b = awake(t, TOKYO);
@@ -37,7 +37,7 @@ const ticks = [0, 6, 12, 18].map((h) => `<span style="left:${(h / 24) * 100}%">$
 const MADRID = 'Europe/Madrid';
 const send = wall('2026-11-19 18:00');
 expect('Madrid at send', `${day(send, MADRID)} ${time(send, MADRID)}`, 'Fri 12:00 AM');
-expect('Indy send day', day(send, HOME), 'Thu');
+expect('NYC send day', day(send, HOME), 'Thu');
 checkCopy();
 
 const base = `
@@ -73,15 +73,15 @@ h1 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; font-size
 .also { font-size: 30px; line-height: 1.4; margin-top: 64px; max-width: 820px; text-wrap: balance; }
 </style></head><body><div class="canvas">
 <div class="logo">NET<i></i>MAX</div>
-<h1>Call Tokyo from Indianapolis between 6 and 11 PM</h1>
+<h1>Call Tokyo from New York City between 6 and 11 PM</h1>
 <div class="chart">
-  <div class="r"><b>Indianapolis</b><div class="cells">${row('a')}</div></div>
+  <div class="r"><b>New York</b><div class="cells">${row('a')}</div></div>
   <div class="r"><b>Tokyo</b><div class="cells">${row('b')}</div></div>
   <div class="ticks">${ticks}</div>
   <p class="key"><i></i>You're both awake<i class="g"></i>Awake</p>
 </div>
 <div class="times">
-  <div><p>Indianapolis, Tuesday</p><strong>6 to 11 PM</strong></div>
+  <div><p>New York, Tuesday</p><strong>6 to 11 PM</strong></div>
   <div><p>Tokyo, Wednesday</p><strong>8 AM to 1 PM</strong></div>
 </div>
 <p class="also">Mornings work too: 8 to 9 AM your time is 10 to 11 PM in Tokyo.</p>
@@ -100,15 +100,15 @@ h1 { font-family: 'Fraunces', serif; font-weight: 560; font-size: 96px; line-hei
 <h1>Their birthday in Madrid starts Thursday at 6 PM your time</h1>
 <div class="thread">
   <div class="bubble">happy birthday!! it's already the 20th over there. hope madrid is ready for you</div>
-  <div class="meta">Sent Thursday 6:00 PM in Indianapolis, midnight in Madrid</div>
+  <div class="meta">Sent Thursday 6:00 PM in New York, midnight in Madrid</div>
 </div>
 <p class="body">Madrid is 6 hours ahead. Send the first text at their midnight and it's waiting when they wake up on their birthday.</p>
 <div class="foot"><span>@networkingmaxxing</span><span style="text-align:right">Example: a birthday on Friday, Nov 20.<br>Holds until US clocks change Mar 14.</span></div>
 </div></body></html>`;
 
 const posts = [
-  { slug: '01-tokyo-call-window', html: tokyo, alt: "NET-MAX. Call Tokyo from Indianapolis between 6 and 11 PM. A chart of one Tuesday in Indianapolis, hour by hour, with a row for Indianapolis and a row for Tokyo. Both rows are green, meaning you're both awake, at 8 AM and from 6 to 11 PM Indianapolis time. Indianapolis, Tuesday: 6 to 11 PM. Tokyo, Wednesday: 8 AM to 1 PM. Mornings work too: 8 to 9 AM your time is 10 to 11 PM in Tokyo. Awake hours 8 AM to 11 PM. Holds until US clocks change Mar 14. @networkingmaxxing" },
-  { slug: '02-madrid-birthday-text', html: madrid, alt: "NET-MAX. Their birthday in Madrid starts Thursday at 6 PM your time. A text message bubble reads: happy birthday!! it's already the 20th over there. hope madrid is ready for you. Sent Thursday 6:00 PM in Indianapolis, midnight in Madrid. Madrid is 6 hours ahead. Send the first text at their midnight and it's waiting when they wake up on their birthday. Example: a birthday on Friday, Nov 20. Holds until US clocks change Mar 14. @networkingmaxxing" },
+  { slug: '01-tokyo-call-window', html: tokyo, alt: "NET-MAX. Call Tokyo from New York City between 6 and 11 PM. A chart of one Tuesday in New York, hour by hour, with a row for New York and a row for Tokyo. Both rows are green, meaning you're both awake, at 8 AM and from 6 to 11 PM New York time. New York, Tuesday: 6 to 11 PM. Tokyo, Wednesday: 8 AM to 1 PM. Mornings work too: 8 to 9 AM your time is 10 to 11 PM in Tokyo. Awake hours 8 AM to 11 PM. Holds until US clocks change Mar 14. @networkingmaxxing" },
+  { slug: '02-madrid-birthday-text', html: madrid, alt: "NET-MAX. Their birthday in Madrid starts Thursday at 6 PM your time. A text message bubble reads: happy birthday!! it's already the 20th over there. hope madrid is ready for you. Sent Thursday 6:00 PM in New York, midnight in Madrid. Madrid is 6 hours ahead. Send the first text at their midnight and it's waiting when they wake up on their birthday. Example: a birthday on Friday, Nov 20. Holds until US clocks change Mar 14. @networkingmaxxing" },
 ];
 
 const browser = await chromium.launch();

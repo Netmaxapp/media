@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // Next clock changes for the zones in a post, so "this holds until <date>" notes are right.
 //   node dst.mjs [from YYYY-MM-DD] [zone ...]
-// Defaults: from today; zones = Indianapolis plus the cities NET-MAX posts about most.
+// Defaults: from today; zones = New York City plus the cities NET-MAX posts about most.
 const args = process.argv.slice(2);
 const from = /^\d{4}-\d{2}-\d{2}$/.test(args[0] || '') ? new Date(args.shift() + 'T12:00:00Z') : new Date();
-const zones = args.length ? args : ['America/Indiana/Indianapolis', 'Europe/London', 'Europe/Madrid', 'Europe/Lisbon', 'Asia/Seoul', 'Asia/Tokyo', 'Australia/Sydney'];
+const zones = args.length ? args : ['America/New_York', 'Europe/London', 'Europe/Madrid', 'Europe/Lisbon', 'Asia/Seoul', 'Asia/Tokyo', 'Australia/Sydney'];
 const off = (t, tz) => {
   const p = Object.fromEntries(new Intl.DateTimeFormat('en-US', { timeZone: tz, hourCycle: 'h23', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).formatToParts(new Date(t)).map((x) => [x.type, x.value]));
   return (Date.UTC(+p.year, p.month - 1, +p.day, +p.hour, +p.minute) - t) / 60000;

@@ -6,7 +6,7 @@ import { HOME, wall, time, day, awake, overlap, expect, hourLabel } from './time
 
 const WEEKDAY = { Sun: 'Sunday', Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday' };
 
-// "tomorrow"/"yesterday" relative to Indianapolis
+// "tomorrow"/"yesterday" relative to New York City (HOME)
 const rel = (at, tz) => {
   const ymd = (z) => new Intl.DateTimeFormat('en-CA', { timeZone: z }).format(at);
   return ymd(tz) > ymd(HOME) ? ', tomorrow' : ymd(tz) < ymd(HOME) ? ', yesterday' : '';
@@ -16,7 +16,6 @@ const rows = (at, cities, youName) => cities.map(([city, tz]) => ({
 }));
 
 const CITY = {
-  'Indianapolis': ['America/Indiana/Indianapolis', -86.16, 39.77],
   'Los Angeles': ['America/Los_Angeles', -118.24, 34.05],
   'Chicago': ['America/Chicago', -87.63, 41.88],
   'Denver': ['America/Denver', -104.99, 39.74],
@@ -65,13 +64,13 @@ const mapOf = (at, crop, spec) => {
 // ============================================================================
 const c1 = (() => {
   const at = wall('2026-11-03 19:00');
-  const seven = cities('Los Angeles', 'Indianapolis', 'London', 'Madrid', 'Dubai', 'Tokyo', 'Sydney');
-  const coverRows = rows(at, seven, 'Indianapolis');
+  const seven = cities('Los Angeles', 'New York', 'London', 'Madrid', 'Dubai', 'Tokyo', 'Sydney');
+  const coverRows = rows(at, seven, 'New York');
   expect('c1 asleep count at 7pm', coverRows.filter((r) => !r.awake).length, 3);
 
   const am = wall('2026-11-04 08:00'), pm = wall('2026-11-04 19:00');
   const bday = wall('2027-03-04 00:00', tz('Tokyo'));
-  expect('c1 Tokyo birthday starts (Indy)', `${day(bday, HOME)} ${time(bday, HOME)}`, 'Wed 10:00 AM');
+  expect('c1 Tokyo birthday starts (NYC)', `${day(bday, HOME)} ${time(bday, HOME)}`, 'Wed 10:00 AM');
   const vn = wall('2026-11-03 23:02');
   expect('c1 voice note Tokyo', time(vn, tz('Tokyo')), '1:02 PM');
 
@@ -80,9 +79,9 @@ const c1 = (() => {
     slides: [
       {
         cover: true, h: 'How to keep friends in *7 time zones*',
-        body: 'It’s 7 p.m. in Indianapolis. Three of these cities are asleep.',
-        visual: `<div class="card tight"><div class="card-title">Tuesday, ${time(at, HOME)} in Indianapolis</div>${C.clock(coverRows, true)}</div>`,
-        alt: `World clock at ${time(at, HOME)} Tuesday in Indianapolis: ` + coverRows.map((r) => `${r.city} ${r.t}${r.sub.includes('tomorrow') ? ' Wednesday' : ''}, ${r.awake ? 'awake' : 'asleep'}`).join('; ') + '.',
+        body: 'It’s 7 p.m. in New York City. Three of these cities are asleep.',
+        visual: `<div class="card tight"><div class="card-title">Tuesday, ${time(at, HOME)} in New York City</div>${C.clock(coverRows, true)}</div>`,
+        alt: `World clock at ${time(at, HOME)} Tuesday in New York City: ` + coverRows.map((r) => `${r.city} ${r.t}${r.sub.includes('tomorrow') ? ' Wednesday' : ''}, ${r.awake ? 'awake' : 'asleep'}`).join('; ') + '.',
       },
       {
         h: 'Add their cities to your clock app',
@@ -140,8 +139,8 @@ const c1 = (() => {
       {
         cta: true, h: 'We’re putting all of this in one app',
         body: 'NET-MAX shows everyone you know on a map, with their local time next to their name. Launching in January.',
-        visual: mapOf(at, [-150, 176, 72, -46], [['Los Angeles', -0.3, 2.0], ['Indianapolis', 0.7, 0.2], ['London', -0.7, -0.5, 'end'], ['Madrid', 0.7, 0.9], ['Dubai', 0.7, 0.5], ['Tokyo', -0.7, -0.3, 'end'], ['Sydney', -0.7, 0, 'end']]),
-        alt: `Map with seven pins and local times at ${time(at, HOME)} in Indianapolis.`,
+        visual: mapOf(at, [-150, 176, 72, -46], [['Los Angeles', -0.3, 2.0], ['New York', 0.7, 0.2], ['London', -0.7, -0.5, 'end'], ['Madrid', 0.7, 0.9], ['Dubai', 0.7, 0.5], ['Tokyo', -0.7, -0.3, 'end'], ['Sydney', -0.7, 0, 'end']]),
+        alt: `Map with seven pins and local times at ${time(at, HOME)} in New York City.`,
       },
     ],
     ig: `Most of keeping up with friends in other countries is timing.
@@ -270,14 +269,14 @@ const c3 = (() => {
       {
         h: 'Your host family or professor',
         body: 'Write a real thank-you before you go, by hand if you can. They’re also who you’ll want to ask for a reference later.',
-        visual: `<div style="padding:0 18px 18px">${C.paper(['Thank you for every dinner, and for correcting my Spanish without making it weird.', 'I’ll write from Indiana.', 'Sam'])}</div>`,
-        alt: 'Handwritten note: “Thank you for every dinner, and for correcting my Spanish without making it weird. I’ll write from Indiana. Sam”',
+        visual: `<div style="padding:0 18px 18px">${C.paper(['Thank you for every dinner, and for correcting my Spanish without making it weird.', 'I’ll write from New York.', 'Sam'])}</div>`,
+        alt: 'Handwritten note: “Thank you for every dinner, and for correcting my Spanish without making it weird. I’ll write from New York. Sam”',
       },
       {
         h: 'The 3 a.m. kitchen friend',
         body: 'Once you’re home you’ll be hours apart. Pick a call time now that works on both clocks.',
-        visual: `${C.thread([{ text: 'sunday calls? 11 my time, 5 yours' }])}<div class="card" style="margin-top:26px"><div class="card-title">Sundays</div>${C.clock(rows(call, cities('Indianapolis', 'Berlin')).map((r) => ({ ...r, sub: r.city === 'Indianapolis' ? 'you' : 'them' })))}</div>`,
-        alt: `Message: “sunday calls? 11 my time, 5 yours.” Sundays: Indianapolis ${time(call, HOME)}, Berlin ${time(call, tz('Berlin'))}. Both awake.`,
+        visual: `${C.thread([{ text: 'sunday calls? 11 my time, 5 yours' }])}<div class="card" style="margin-top:26px"><div class="card-title">Sundays</div>${C.clock(rows(call, cities('New York', 'Berlin')).map((r) => ({ ...r, sub: r.city === 'New York' ? 'you' : 'them' })))}</div>`,
+        alt: `Message: “sunday calls? 11 my time, 5 yours.” Sundays: New York ${time(call, HOME)}, Berlin ${time(call, tz('Berlin'))}. Both awake.`,
       },
       {
         h: 'Message them one-on-one',
@@ -288,8 +287,8 @@ const c3 = (() => {
       {
         cta: true, h: 'Keep the whole semester on one map',
         body: 'NET-MAX puts everyone you know on a map, with their local time. Launching in January.',
-        visual: mapOf(wall('2026-11-07 11:00'), [-100, 36, 62, 22], [['Indianapolis', 0.7, 0.3], ['Madrid', -0.7, 0.4, 'end'], ['Berlin', 0.7, 0]]),
-        alt: 'Map with pins in Indianapolis, Madrid and Berlin and their local times.',
+        visual: mapOf(wall('2026-11-07 11:00'), [-100, 36, 62, 22], [['New York', 0.7, 0.3], ['Madrid', -0.7, 0.4, 'end'], ['Berlin', 0.7, 0]]),
+        alt: 'Map with pins in New York, Madrid and Berlin and their local times.',
       },
     ],
     ig: `Finishing a semester abroad in December? Message these five people before your flight.
@@ -355,7 +354,7 @@ NET-MAX launches in January. Waitlist link in bio.
 // ============================================================================
 const c5 = (() => {
   const TIERS = [
-    { k: 'S', cities: ['New York', 'Toronto', 'Atlanta', 'Bogotá'] },
+    { k: 'S', cities: ['Toronto', 'Atlanta', 'Bogotá'] },
     { k: 'A', cities: ['Chicago', 'Mexico City', 'Denver', 'Buenos Aires', 'Los Angeles'] },
     { k: 'B', cities: ['London', 'Dublin', 'Honolulu', 'Madrid', 'Paris', 'Berlin', 'Lagos', 'Auckland'] },
     { k: 'C', cities: ['Cape Town', 'Nairobi', 'Istanbul', 'Sydney', 'Dubai'] },
@@ -398,7 +397,7 @@ const c5 = (() => {
     const t = TIERS.find((x) => x.k === k);
     return {
       h: `${k} tier: ${/^(Same|Your|Exactly)/.test(h) ? h[0].toLowerCase() + h.slice(1) : h}`, body, visual: bars(...barCities), accent: `var(--tier-${k})`,
-      alt: `Cities in this tier: ${t.cities.join(', ')}. ` + barCities.map((c) => `${c}: both awake ${ov[c].blocks.map((b) => `${hourLabel(b.start)} to ${hourLabel(b.end)}`).join(' and ')}, Indianapolis time`).join('. ') + '.',
+      alt: `Cities in this tier: ${t.cities.join(', ')}. ` + barCities.map((c) => `${c}: both awake ${ov[c].blocks.map((b) => `${hourLabel(b.start)} to ${hourLabel(b.end)}`).join(' and ')}, New York time`).join('. ') + '.',
     };
   };
   return {
@@ -406,11 +405,11 @@ const c5 = (() => {
     slides: [
       {
         cover: true, h: 'Time zones, ranked by how hard it is to *text your friends*', hCls: 's',
-        body: 'From Indianapolis, in November. We counted the longest stretch you’re both awake, 8 a.m. to 11 p.m.',
+        body: 'From New York City, in November. We counted the longest stretch you’re both awake, 8 a.m. to 11 p.m.',
         visual: C.tierChart(TIERS),
         alt: 'Tier list. ' + TIERS.map((t) => `${t.k} tier (${t.hrs}): ${t.cities.join(', ')}`).join('. ') + '.',
       },
-      tierSlide('S', 'Same clock', 'New York, Toronto, Atlanta. And Bogotá: Colombia doesn’t change its clocks, so it matches Indiana from November to March.', ['New York', 'Bogotá']),
+      tierSlide('S', 'Same clock', 'Toronto, Atlanta and the rest of the East Coast. And Bogotá: Colombia doesn’t change its clocks, so it matches New York from November to March.', ['Toronto', 'Bogotá']),
       tierSlide('A', '1 to 3 hours off', 'Chicago and Mexico City get 14 hours, Denver and Buenos Aires 13, Los Angeles 12. For LA, start after 11 a.m. your time.', ['Chicago', 'Los Angeles']),
       tierSlide('B', 'Europe, plus a surprise', 'London and Dublin get 10 hours. Madrid, Paris and Berlin get 9, so text before 5 p.m. Auckland also gets 9: their morning is your afternoon.', ['London', 'Madrid', 'Auckland']),
       tierSlide('C', 'Sydney beats Tokyo', 'Your 4 p.m. is 8 a.m. tomorrow in Sydney, which gives you 7 hours in a row. Nairobi and Istanbul also get 7. Dubai gets 6.', ['Sydney', 'Dubai']),
@@ -419,25 +418,25 @@ const c5 = (() => {
       {
         cta: true, h: 'Your list will look different',
         body: 'NET-MAX shows each friend’s local time next to their name. Launching in January.',
-        foot: 'How we counted: both people awake 8 a.m. to 11 p.m., checked in half-hour steps for Nov 10, 2026, Indianapolis time. US clocks changed Nov 1. Sydney and Auckland are on summer time. Some of these move by an hour in March.',
+        foot: 'How we counted: both people awake 8 a.m. to 11 p.m., checked in half-hour steps for Nov 10, 2026, New York time. US clocks changed Nov 1. Sydney and Auckland are on summer time. Some of these move by an hour in March.',
         visual: '',
         alt: '',
       },
     ],
-    ig: `We ranked time zones by how many waking hours you share with Indianapolis in November.
+    ig: `We ranked time zones by how many waking hours you share with New York City in November.
 
 We counted the longest stretch you’re both awake, 8 a.m. to 11 p.m.
 
 Surprises: Bogotá is on our time right now, Sydney beats Tokyo, and the bottom of the list is Bangkok, Jakarta and Ho Chi Minh City, exactly 12 hours ahead.
 
-On the East Coast? Same list. You’re on the same clock.
+Anywhere on the East Coast gets the same list.
 
 Which tier is your best friend in?
 
 NET-MAX waitlist link in bio.
 
-#timezones #longdistancefriends #studyabroad #indiana`,
-    tt: `time zones ranked by how many hours you can text your friends (from indiana / the east coast, november clocks). sydney beats tokyo. NET-MAX waitlist link is in our Instagram bio #timezones #tierlist #longdistancefriends #studyabroad`,
+#timezones #longdistancefriends #studyabroad #nyc`,
+    tt: `time zones ranked by how many hours you can text your friends (from new york / the east coast, november clocks). sydney beats tokyo. NET-MAX waitlist link is in our Instagram bio #timezones #tierlist #longdistancefriends #studyabroad`,
     ttTitle: 'Time zones ranked by how hard it is to text your friends',
   };
 })();
@@ -448,7 +447,7 @@ NET-MAX waitlist link in bio.
 const c6 = (() => {
   const rem = wall('2027-01-24 19:00', tz('Madrid'));
   expect('c6 Jan 24 2027 is Sunday', day(rem, tz('Madrid')), 'Sun');
-  expect('c6 Madrid 7pm in Indy', time(rem, HOME), '1:00 PM');
+  expect('c6 Madrid 7pm in NYC', time(rem, HOME), '1:00 PM');
   const steps = [
     { when: '4 weeks before', what: 'Make the list' },
     { when: '3 weeks before', what: 'Send each one a question' },
@@ -497,15 +496,15 @@ const c6 = (() => {
       },
       {
         h: `${steps[4].when}: keep up with home too`,
-        body: `Set a repeating reminder to text two people from home. 7 p.m. on a Sunday in Madrid is ${time(rem, HOME).replace(':00', '').replace(' PM', ' p.m.')} in Indiana, so they’re awake.`,
-        visual: `<div class="card">${C.event({ mo: 'Repeats', dd: 'Sun', title: 'Text 2 people from home', when: `Every other Sunday, ${time(rem, tz('Madrid'))}`, sub: `${time(rem, HOME)} in Indianapolis` })}</div>`,
-        alt: `Repeating reminder: text 2 people from home, every other Sunday at ${time(rem, tz('Madrid'))} Madrid time, ${time(rem, HOME)} in Indianapolis.`,
+        body: `Set a repeating reminder to text two people from home. 7 p.m. on a Sunday in Madrid is ${time(rem, HOME).replace(':00', '').replace(' PM', ' p.m.')} in New York, so they’re awake.`,
+        visual: `<div class="card">${C.event({ mo: 'Repeats', dd: 'Sun', title: 'Text 2 people from home', when: `Every other Sunday, ${time(rem, tz('Madrid'))}`, sub: `${time(rem, HOME)} in New York` })}</div>`,
+        alt: `Repeating reminder: text 2 people from home, every other Sunday at ${time(rem, tz('Madrid'))} Madrid time, ${time(rem, HOME)} in New York City.`,
       },
       {
         cta: true, h: 'See who you know in any city',
         body: 'NET-MAX shows who you know wherever you’re going. Launching in January.',
-        visual: mapOf(wall('2026-11-12 12:00'), [-100, 34, 62, 22], [['Indianapolis', 0.7, 0.3], ['Madrid', -0.7, 0.3, 'end']]),
-        alt: 'Map with pins in Indianapolis and Madrid and their local times.',
+        visual: mapOf(wall('2026-11-12 12:00'), [-100, 34, 62, 22], [['New York', 0.7, 0.3], ['Madrid', -0.7, 0.3, 'end']]),
+        alt: 'Map with pins in New York and Madrid and their local times.',
       },
     ],
     ig: `Moving somewhere new in January? Start with the people you already know there.
@@ -649,7 +648,7 @@ const c8 = (() => {
         h: 'Thursday: friends abroad',
         body: 'It’s a normal Thursday for them. Send a photo from the table, but check their clock first. For Europe, send it before you sit down.',
         visual: C.conv([{ k: 'If dinner is at', v: time(dinner, HOME), rows: abroad }]),
-        alt: `If dinner is at ${time(dinner, HOME)} in Indiana: ` + abroad.map((r) => `${r.city} ${r.t} ${r.sub.replace(', tomorrow', '')}, ${r.awake ? 'awake' : 'asleep'}`).join('; ') + '.',
+        alt: `If dinner is at ${time(dinner, HOME)} in New York: ` + abroad.map((r) => `${r.city} ${r.t} ${r.sub.replace(', tomorrow', '')}, ${r.awake ? 'awake' : 'asleep'}`).join('; ') + '.',
       },
       {
         h: 'Thursday: someone you lost touch with',
@@ -665,7 +664,7 @@ const c8 = (() => {
     ],
     ig: `Thanksgiving is Thursday, Nov 26. Who to text over break, and which day to do it.
 
-If you have friends abroad, check the time before you send the table photo. 4 p.m. dinner in Indiana is 9 p.m. in London and 6 a.m. Friday in Tokyo.
+If you have friends abroad, check the time before you send the table photo. 4 p.m. dinner in New York is 9 p.m. in London and 6 a.m. Friday in Tokyo.
 
 NET-MAX launches in January. Waitlist link in bio.
 

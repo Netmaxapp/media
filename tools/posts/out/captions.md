@@ -5,7 +5,7 @@ Times computed with tools/carousels/time.mjs for November 2026. They hold until 
 
 ## 01 Tokyo call window
 
-Calling a friend in Tokyo from Indianapolis: 6 to 11 PM your time is 8 AM to 1 PM their next day.
+Calling a friend in Tokyo from New York City: 6 to 11 PM your time is 8 AM to 1 PM their next day.
 
 Tokyo is 14 hours ahead, so your evening is their morning. Before 6 PM they're still asleep, and after 11 you are. If evenings are busy, 8 to 9 AM your time catches them at 10 to 11 PM.
 
@@ -15,7 +15,7 @@ NET-MAX shows everyone you know on a map with their local time, so you can see w
 
 ## 02 Madrid birthday text
 
-Texting a friend abroad on their birthday: in Madrid it starts at 6 PM the night before, Indianapolis time.
+Texting a friend abroad on their birthday: in Madrid it starts at 6 PM the night before, New York time.
 
 Busy at 6? Write the text earlier and schedule it. On iPhone, open Messages, tap the plus button, choose Send Later and pick 6:00 PM. It needs iOS 18 or later.
 
@@ -25,13 +25,13 @@ NET-MAX puts each friend's local time next to their name, so the night before th
 
 ## TikTok: tokyo-call-window (video)
 
-how to call a friend in tokyo from indianapolis without waking them up. tokyo is 14 hours ahead, so 6 to 11 PM your time is 8 AM to 1 PM their next day. mornings work too: 8 to 9 AM here is 10 to 11 PM there. NET-MAX launches on iOS in january, waitlist link is in our Instagram bio #timezones #studyabroadjapan #longdistancefriends #internationalstudents
+how to call a friend in tokyo from new york without waking them up. tokyo is 14 hours ahead, so 6 to 11 PM your time is 8 AM to 1 PM their next day. mornings work too: 8 to 9 AM here is 10 to 11 PM there. NET-MAX launches on iOS in january, waitlist link is in our Instagram bio #timezones #studyabroadjapan #longdistancefriends #internationalstudents
 
 Music: Space Jazz by Kevin MacLeod (incompetech.com), CC BY 4.0
 
 ## TikTok: madrid-birthday-text (video)
 
-texting a friend abroad on their birthday: in madrid it starts at 6 PM the night before, indianapolis time. busy at 6? schedule it in messages with send later. NET-MAX launches on iOS in january, waitlist link is in our Instagram bio #studyabroadspain #longdistancefriends #timezones #birthdaytexts
+texting a friend abroad on their birthday: in madrid it starts at 6 PM the night before, new york time. busy at 6? schedule it in messages with send later. NET-MAX launches on iOS in january, waitlist link is in our Instagram bio #studyabroadspain #longdistancefriends #timezones #birthdaytexts
 
 Music: Pleasant Porridge by Kevin MacLeod (incompetech.com), CC BY 4.0
 
@@ -43,13 +43,13 @@ Music: Aerosol of my Love by Kevin MacLeod (incompetech.com), CC BY 4.0
 
 ## TikTok: 7-hours-ahead (emotional, video, not scheduled)
 
-texting someone 7 hours ahead of you: you send it at 11:42 PM in indianapolis and it lands at 6:42 AM in athens, right as they wake up. the reply comes while you're asleep. NET-MAX shows everyone you know with their local time, so you can catch them awake. launches on iOS in january, waitlist link is in our Instagram bio #longdistancefriends #timezones #studyabroad #friendsabroad
+texting someone 7 hours ahead of you: you send it at 11:42 PM in new york and it lands at 6:42 AM in athens, right as they wake up. the reply comes while you're asleep. NET-MAX shows everyone you know with their local time, so you can catch them awake. launches on iOS in january, waitlist link is in our Instagram bio #longdistancefriends #timezones #studyabroad #friendsabroad
 
 Music: Late Night Radio by Kevin MacLeod (incompetech.com), CC BY 4.0
 
 ## Instagram Reel: 7-hours-ahead
 
-Texting someone 7 hours ahead: send it at 11:42 PM in Indianapolis and it lands at 6:42 AM in Athens.
+Texting someone 7 hours ahead: send it at 11:42 PM in New York and it lands at 6:42 AM in Athens.
 
 The reply comes while you're asleep, and the whole conversation runs on a 7-hour delay.
 
@@ -63,7 +63,7 @@ Music: Late Night Radio by Kevin MacLeod (incompetech.com), CC BY 4.0
 
 Friends 14 hours apart: one of you is always asleep, so the hours you're both awake are the good ones.
 
-From Indianapolis, Tokyo is 14 hours ahead. You're both awake from 6 to 11 PM your time, and from 8 to 9 AM.
+From New York City, Tokyo is 14 hours ahead. You're both awake from 6 to 11 PM your time, and from 8 to 9 AM.
 
 NET-MAX shows everyone you know with their local time. It launches on iOS in January. Waitlist link in our bio.
 

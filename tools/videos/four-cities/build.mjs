@@ -4,7 +4,7 @@
 //   node build.mjs [--date 2026-11-03] [--music ../audio/music-bed.m4a]
 //
 // 1. Always renders the overlays + end card for the given date (times computed from tz data).
-// 2. If clips/indianapolis.mp4, clips/madrid.mp4, clips/tokyo.mp4, clips/sydney.mp4 exist,
+// 2. If clips/new-york.mp4, clips/madrid.mp4, clips/tokyo.mp4, clips/sydney.mp4 exist,
 //    assembles NET-MAX_video_four-cities.mp4 (9:16, 15 s). Any aspect ratio in, cropped to 9:16.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -22,12 +22,12 @@ const clipsDir = path.resolve(args.clips || path.join(here, 'clips'));
 const outDir = path.join(here, 'build');
 fs.mkdirSync(outDir, { recursive: true });
 
-// ---- the moment: 7 p.m. in Indianapolis on the posting date ----
+// ---- the moment: 7 p.m. in New York City on the posting date ----
 const date = args.date || '2026-11-03';
 const at = wall(`${date} 19:00`);
 const ymd = (z) => new Intl.DateTimeFormat('en-CA', { timeZone: z }).format(at);
 const SHOTS = [
-  { file: 'indianapolis', city: 'Indianapolis', tz: HOME, you: true, ai: false },
+  { file: 'new-york', city: 'New York', tz: HOME, you: true, ai: false },
   { file: 'madrid', city: 'Madrid', tz: 'Europe/Madrid', ai: true },
   { file: 'tokyo', city: 'Tokyo', tz: 'Asia/Tokyo', ai: true },
   { file: 'sydney', city: 'Sydney', tz: 'Australia/Sydney', ai: true },

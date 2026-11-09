@@ -19,7 +19,7 @@ The pull is the same in both: a friendship that's far away, and that feeling is 
 
 - **The turn:** leave a real half-second pause before "is something i would never say". That pause is the turn the video depends on.
 - **Length:** about 15 s. Don't speed it up.
-- **The time zone:** seven hours is Indianapolis to Athens in November. If your friend lives somewhere else, tell me where and I'll swap in the right number of hours.
+- **The time zone:** seven hours is New York to Athens in November. If your friend lives somewhere else, tell me where and I'll swap in the right number of hours.
 - **Words on screen:** the script itself, 3 words at a time, in sentence case.
 - **Caption idea:** "for the friends in other time zones. NET-MAX shows everyone you know with their local time, so the 8 AM call is easy to find. launches on iOS in january, waitlist link is in our Instagram bio"
 
@@ -34,5 +34,5 @@ The stock version (`out/tiktok-7-hours-ahead.mp4`) tells this story with ocean f
 5. **Morning light:** a second person's hand picks the bottle up. Use a friend's hand, in a different place. They pull the note out.
 
 - **Caption, on screen the whole time:** "How it feels to text someone 7 hours ahead of you"
-- **Timestamps:** I'll add "11:42 PM in Indianapolis" over shot 1 and "Delivered 6:42 AM in Athens" over shot 5, both calculated for the posting week.
+- **Timestamps:** I'll add "11:42 PM in New York" over shot 1 and "Delivered 6:42 AM in Athens" over shot 5, both calculated for the posting week.
 - **Afterwards:** pick the bottle back up after filming. Don't leave glass in the water.

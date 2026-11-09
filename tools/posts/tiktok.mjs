@@ -21,12 +21,12 @@ const stills = (process.argv.find((a, i, all) => all[i - 1] === '--stills') || '
 
 // ---------- the math ----------
 const TOKYO = 'Asia/Tokyo', DAY = '2026-11-10';
-expect('6 PM Indy in Tokyo', `${day(wall(`${DAY} 18:00`), TOKYO)} ${time(wall(`${DAY} 18:00`), TOKYO)}`, 'Wed 8:00 AM');
-expect('11 PM Indy in Tokyo', time(wall(`${DAY} 23:00`), TOKYO), '1:00 PM');
-expect('8 AM Indy in Tokyo', time(wall(`${DAY} 08:00`), TOKYO), '10:00 PM');
+expect('6 PM NYC in Tokyo', `${day(wall(`${DAY} 18:00`), TOKYO)} ${time(wall(`${DAY} 18:00`), TOKYO)}`, 'Wed 8:00 AM');
+expect('11 PM NYC in Tokyo', time(wall(`${DAY} 23:00`), TOKYO), '1:00 PM');
+expect('8 AM NYC in Tokyo', time(wall(`${DAY} 08:00`), TOKYO), '10:00 PM');
 const MADRID = 'Europe/Madrid', send = wall('2026-11-19 18:00');
 expect('Madrid at send', `${day(send, MADRID)} ${time(send, MADRID)}`, 'Fri 12:00 AM');
-expect('Indy send day', day(send, HOME), 'Thu');
+expect('NYC send day', day(send, HOME), 'Thu');
 checkCopy();
 
 const cells = Array.from({ length: 24 }, (_, h) => {
@@ -78,15 +78,15 @@ const tokyo = `<!doctype html><html><head><meta charset="utf-8"><style>${base('-
 </style></head><body><div class="stage"><div class="zone">
 <div class="main" data-in="0" data-out="12">
   <div class="logo">NET<i></i>MAX</div>
-  <div class="h" style="margin-top:64px">Call Tokyo from Indianapolis between 6 and 11 PM</div>
+  <div class="h" style="margin-top:64px">Call Tokyo from New York City between 6 and 11 PM</div>
   <p class="sub muted" data-in="2.6" data-fx="fade">Tokyo is 14 hours ahead.</p>
   <div class="chart">
-    <div data-in="3.6" data-fx="wipe"><p class="lbl">Indianapolis</p><div class="cw">${row('a')}<div data-in="6" data-fx="fade" data-dur="0.4">${both}</div></div></div>
+    <div data-in="3.6" data-fx="wipe"><p class="lbl">New York</p><div class="cw">${row('a')}<div data-in="6" data-fx="fade" data-dur="0.4">${both}</div></div></div>
     <div data-in="4.3" data-fx="wipe"><p class="lbl">Tokyo</p><div class="cw">${row('b')}<div data-in="6" data-fx="fade" data-dur="0.4">${both}</div></div></div>
     <p class="key" data-in="6" data-fx="fade"><i></i>You're both awake</p>
   </div>
   <div class="times" data-in="7.6">
-    <div><p>Indianapolis, Tuesday</p><strong>6 to 11 PM</strong></div>
+    <div><p>New York, Tuesday</p><strong>6 to 11 PM</strong></div>
     <div><p>Tokyo, Wednesday</p><strong>8 AM to 1 PM</strong></div>
   </div>
   <p class="also" data-in="9.8" data-fx="fade">Mornings work too: 8 to 9 AM your time is 10 to 11 PM in Tokyo.</p>
@@ -109,7 +109,7 @@ const madrid = `<!doctype html><html><head><meta charset="utf-8"><style>${base('
   <div class="logo">NET<i></i>MAX</div>
   <div class="h" style="margin-top:64px">Their birthday in Madrid starts Thursday at 6 PM your time</div>
   <div class="clocks" data-in="2.8" data-fx="wipe">
-    <div><p>Indianapolis, Thursday</p><strong>6:00 PM</strong></div>
+    <div><p>New York, Thursday</p><strong>6:00 PM</strong></div>
     <div><p>Madrid, Friday</p><strong>12:00 AM</strong></div>
   </div>
   <div class="thread">

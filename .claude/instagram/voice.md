@@ -25,12 +25,12 @@ leave a TODO rather than guessing.
 
 - **Three of my own captions that sound most like me:**
   1. "Friends you make abroad, sorted by how close they live and how fast they reply. Send this to your 4 a.m. voice note friend."
-  2. "Every contacts app has an “Alex (conference?)”. These are the same eight people with a city and their local time at 7 p.m. in Indianapolis. Four of them are awake. Who’s your Daniel?"
+  2. "Every contacts app has an “Alex (conference?)”. These are the same eight people with a city and their local time at 7 p.m. in New York City. Four of them are awake. Who’s your Daniel?"
   3. "How a week of building NET-MAX works: practice at 6:30, class, building at night, and one meeting every Sunday."
 - **On camera I am:** dry and self-aware. The "which green" skit is the
   reference. **TODO:** confirm.
 - **Words I actually use:** sentence case, contractions, real times and
-  cities ("7 p.m. in Indianapolis is 1 a.m. in Madrid"). Mock texts are
+  cities ("7 p.m. in New York City is 1 a.m. in Madrid"). Mock texts are
   lowercase, the way people type.
 - **Words I would never say out loud:** "actually", "game-changer", "unlock",
   "level up", "hack", "the secret", "save this", "swipe", "now what?",

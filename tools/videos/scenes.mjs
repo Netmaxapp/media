@@ -46,7 +46,7 @@ const friends2x2 = {
 // ---------------------------------------------------------------------------
 // Nov 6 · Your contacts app, honestly -> the same people with a city and a clock
 // ---------------------------------------------------------------------------
-const NOW = wall('2026-11-06 19:00'); // when the post goes out, Indianapolis time
+const NOW = wall('2026-11-06 19:00'); // when the post goes out, New York time
 const contacts = [
   ['Alex (conference?)', 'never', 'America/Chicago', 'Chicago'],
   ['Sam NYC', '2023', 'America/New_York', 'New York'],
@@ -58,7 +58,7 @@ const contacts = [
   ['Lucía BA', 'never', 'America/Argentina/Buenos_Aires', 'Buenos Aires'],
 ];
 const awakeCount = contacts.filter(([, , tz]) => tz && awake(NOW, tz)).length;
-expect('video contacts: awake at 7pm Indy', awakeCount, 4);
+expect('video contacts: awake at 7pm NYC', awakeCount, 4);
 expect('video contacts: Madrid', time(NOW, 'Europe/Madrid'), '1:00 AM');
 expect('video contacts: Tokyo', time(NOW, 'Asia/Tokyo'), '9:00 AM');
 const SWAP = 5.2, OUT2 = 11.8;
@@ -85,7 +85,7 @@ const contactsToClocks = {
     <div class="vsub abs" style="top:1090px;left:0;right:0;color:var(--text)" ${at(9.4, OUT2)}><b>${awakeCount} of them are awake right now.</b></div>
     <div class="abs vlabel" style="top:1162px;left:0;color:var(--muted)" ${at(10.6, OUT2, fade)}>Still no idea who Daniel is</div>
     ${endcard(OUT2, 'Everyone you know, with a *city and a clock*', 'NET-MAX is coming to iOS in January.')}`,
-  alt: `A contacts list with names like “Alex (conference?)”, “Maria Madrid?” and “Daniel ???”, mostly last texted never. Then the same people with a city and their local time at 7 p.m. in Indianapolis: ${contacts.filter((c) => c[2]).map(([nm, , tz, city]) => `${city} ${time(NOW, tz)}`).join(', ')}. ${awakeCount} of them are awake right now. Still no idea who Daniel is. NET-MAX is coming to iOS in January.`,
+  alt: `A contacts list with names like “Alex (conference?)”, “Maria Madrid?” and “Daniel ???”, mostly last texted never. Then the same people with a city and their local time at 7 p.m. in New York City: ${contacts.filter((c) => c[2]).map(([nm, , tz, city]) => `${city} ${time(NOW, tz)}`).join(', ')}. ${awakeCount} of them are awake right now. Still no idea who Daniel is. NET-MAX is coming to iOS in January.`,
 };
 
 // ---------------------------------------------------------------------------

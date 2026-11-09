@@ -1,6 +1,6 @@
 // Emotional TikTok: "How it feels to text someone 7 hours ahead of you".
 //   node tools/posts/emotion.mjs [--stills 1,5,10,13.5]
-// Story: a text sent at night in Indianapolis crosses the dark ocean and lands with their sunrise in Athens.
+// Story: a text sent at night in New York City crosses the dark ocean and lands with their sunrise in Athens.
 // Footage: Mixkit, Stock Video Free License (no credit required). Music: "Late Night Radio" by Kevin MacLeod
 // (incompetech.com), CC BY 4.0, credited in the caption. Times computed with tools/carousels/time.mjs.
 // Overlays use timeline.js moves (cut, fade, wipe). Captions sit on a solid black band, never on the footage.
@@ -63,7 +63,7 @@ body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; co
 
   <div class="row r" style="top:${FRAME.y + 760}px" data-in="1" data-out="${t1}">
     <div class="bubble out" data-in="1" data-fx="fade">thinking about you. call this week?</div>
-    <span class="stamp" data-in="1.4" data-fx="fade">11:42 PM in Indianapolis</span>
+    <span class="stamp" data-in="1.4" data-fx="fade">11:42 PM in New York</span>
   </div>
 
   <div class="row l" style="top:${FRAME.y + 120}px" data-in="${t1}" data-out="${t3}">

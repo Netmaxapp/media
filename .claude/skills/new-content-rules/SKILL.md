@@ -20,7 +20,7 @@ Where something here conflicts with an older note in the repo, this skill wins. 
 
 ## The marketing job
 
-**Who we're talking to:** students and young people with friends, family or partners spread across time zones. That includes study abroad students, international students, people who moved for school or work, and their friends back home. The home city in our examples is Indianapolis.
+**Who we're talking to:** students and young people with friends, family or partners spread across time zones. That includes study abroad students, international students, people who moved for school or work, and their friends back home. The home city in our examples is New York City (Eastern time). Label it "New York" in tight spots like clocks and map pins, and "New York City" in sentences.
 
 **What we're selling:** NET-MAX, an iOS app launching in January that puts everyone you know on a map with their local time. For now, the only ask is the waitlist. Its link lives in the Instagram bio.
 

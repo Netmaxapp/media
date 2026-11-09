@@ -1,7 +1,7 @@
 // Time helpers. Every time shown on a slide is computed here from the tz database,
 // never typed by hand. checkCopy() throws if copy text disagrees with the math.
 
-export const HOME = 'America/Indiana/Indianapolis';
+export const HOME = 'America/New_York'; // New York City. Same Eastern clock as Indianapolis, so every time is unchanged.
 export const WAKE_START = 8;  // 8 a.m.
 export const WAKE_END = 23;   // 11 p.m.
 
