@@ -21,8 +21,9 @@ fs.mkdirSync(work, { recursive: true });
 const BAR = 2.4;
 const CLIP = { w: 1080, h: 810, y: 470 };            // 4:3 frame, inside the TikTok safe area
 const beats = [
-  { caption: 'Me and bro living 14 hours apart', clip: 'mixkit-31413-man-in-bed-phone.mp4', from: 0.5, crop: [960, 720, 150, 0], len: 2 * BAR },
-  { caption: "Us when we're both finally awake", clip: 'mixkit-4537-friends-laughing.mp4', from: 3, crop: [720, 540, 400, 60], len: 3 * BAR },
+  // Same actor in both beats (Mixkit's coffee-shop series): alone in beat 1, with her friend in beat 2.
+  { caption: 'Me and my best friend living 14 hours apart', clip: 'mixkit-41234-girl-drinking-coffee.mp4', from: 1, crop: [960, 720, 160, 0], len: 2 * BAR },
+  { caption: "Us when we're both finally awake", clip: 'mixkit-41225-friends-laughing-cafe.mp4', from: 1, crop: [960, 720, 320, 0], len: 3 * BAR },
 ];
 const DUR = beats.reduce((a, b) => a + b.len, 0);
 

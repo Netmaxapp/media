@@ -45,12 +45,12 @@ html, body { width: 1080px; height: 1920px; background: transparent; }
 body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; color: #fff; }
 .stage { position: relative; width: 1080px; height: 1920px; }
 .band { position: absolute; left: 0; right: 0; top: 0; height: ${FRAME.y}px; background: #000; }
-.cap { position: absolute; left: 76px; right: 150px; bottom: 40px; font-size: 50px; font-weight: 600; line-height: 1.25; text-align: center; text-wrap: balance; }
+.cap { position: absolute; left: 76px; right: 150px; bottom: 40px; font-size: 58px; font-weight: 600; line-height: 1.25; text-align: center; text-wrap: balance; }
 .row { position: absolute; left: 76px; right: 150px; display: flex; flex-direction: column; }
-.bubble { font-size: 40px; line-height: 1.3; padding: 24px 32px 26px; border-radius: 40px; max-width: 600px; text-wrap: balance; }
-.out { align-self: flex-end; background: #fff; color: #111; }
-.in { align-self: flex-start; background: #1B1A17; color: #fff; }
-.stamp { display: inline-block; background: #000; color: #fff; font-size: 30px; padding: 10px 16px; margin-top: 14px; }
+.bubble { font-size: 54px; font-weight: 500; line-height: 1.25; padding: 28px 38px 30px; border-radius: 48px; max-width: 720px; text-wrap: balance; }
+.out { align-self: flex-end; background: #39FF88; color: #0B0B0F; }
+.in { align-self: flex-start; background: #0B0B0F; color: #fff; }
+.stamp { display: inline-block; background: #000; color: #fff; font-size: 42px; font-weight: 600; padding: 14px 22px; margin-top: 18px; }
 .out + .stamp, .row.r .stamp { align-self: flex-end; }
 .row.l .stamp { align-self: flex-start; }
 .end { position: absolute; inset: 0; background: #000; display: flex; flex-direction: column; justify-content: center; padding: 0 150px 0 76px; gap: 36px; }
@@ -61,7 +61,7 @@ body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; co
 </style></head><body><div class="stage">
   <div class="band" data-in="0" data-out="${t4}"><p class="cap">How it feels to text someone 7 hours ahead of you</p></div>
 
-  <div class="row r" style="top:${FRAME.y + 760}px" data-in="1" data-out="${t1}">
+  <div class="row r" style="top:${FRAME.y + 620}px" data-in="1" data-out="${t1}">
     <div class="bubble out" data-in="1" data-fx="fade">thinking about you. call this week?</div>
     <span class="stamp" data-in="1.4" data-fx="fade">11:42 PM in New York</span>
   </div>
@@ -73,7 +73,7 @@ body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; co
   <div class="row r" style="top:${FRAME.y + 120}px" data-in="${t3}" data-out="${t4}">
     <span class="stamp" data-in="${t3 + 0.2}" data-fx="wipe">Delivered 6:42 AM in Athens</span>
   </div>
-  <div class="row l" style="top:${FRAME.y + 760}px" data-in="${t3 + 1.2}" data-out="${t4}">
+  <div class="row l" style="top:${FRAME.y + 620}px" data-in="${t3 + 1.2}" data-out="${t4}">
     <div class="bubble in" data-in="${t3 + 1.2}" data-fx="fade">just woke up to this. sunday?</div>
   </div>
 
