@@ -46,3 +46,27 @@ Music: Aerosol of my Love by Kevin MacLeod (incompetech.com), CC BY 4.0
 texting someone 7 hours ahead of you: you send it at 11:42 PM in indianapolis and it lands at 6:42 AM in athens, right as they wake up. the reply comes while you're asleep. NET-MAX shows everyone you know with their local time, so you can catch them awake. launches on iOS in january, waitlist link is in our Instagram bio #longdistancefriends #timezones #studyabroad #friendsabroad
 
 Music: Late Night Radio by Kevin MacLeod (incompetech.com), CC BY 4.0
+
+## Instagram Reel: 7-hours-ahead
+
+Texting someone 7 hours ahead: send it at 11:42 PM in Indianapolis and it lands at 6:42 AM in Athens.
+
+The reply comes while you're asleep, and the whole conversation runs on a 7-hour delay.
+
+NET-MAX shows everyone you know with their local time, so you can catch them awake. It launches on iOS in January. Waitlist link in our bio.
+
+#longdistancefriends #timezones #studyabroad #friendsabroad
+
+Music: Late Night Radio by Kevin MacLeod (incompetech.com), CC BY 4.0
+
+## Instagram Reel: meme-14-hours-apart
+
+Friends 14 hours apart: one of you is always asleep, so the hours you're both awake are the good ones.
+
+From Indianapolis, Tokyo is 14 hours ahead. You're both awake from 6 to 11 PM your time, and from 8 to 9 AM.
+
+NET-MAX shows everyone you know with their local time. It launches on iOS in January. Waitlist link in our bio.
+
+#longdistancefriends #timezones #studyabroad #bestfriends
+
+Music: Aerosol of my Love by Kevin MacLeod (incompetech.com), CC BY 4.0
