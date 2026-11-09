@@ -31,7 +31,7 @@ For every post:
 - **One ask, and it's the waitlist.** Don't stack "save, share, follow, comment". Ask for a comment only if someone will answer every reply.
 - **Write for search.** Put the words people type (time zones, study abroad, long distance friends, texting abroad) in the first caption line, the on-screen text and the hashtags.
 - **Make every claim real.** No invented users, results, testimonials or "most people" numbers. Trust is the brand, and we don't have users yet, so don't imply we do.
-- **Repurpose, don't copy.** An Instagram carousel becomes TikTok photo mode at 1080×1920, with a TikTok-style caption. The idea stays the same and the packaging changes.
+- **Repurpose, don't copy.** On TikTok we post videos, not carousels or photo mode: they do better there. An Instagram carousel or image becomes a 12–20 s 1080×1920 motion video of the same idea, with a TikTok-style caption.
 
 ## The Floor
 
@@ -66,7 +66,7 @@ These apply to everything: slides, videos, captions, stories, replies and alt te
 
 ## Format rules
 
-### Carousels (Instagram 1080×1350, TikTok photo mode 1080×1920)
+### Carousels (Instagram 1080×1350; on TikTok, make a video instead)
 - The cover's headline is the hook. Slide 2 delivers on it straight away, with no "here's what you need to know" slide.
 - Each slide makes one point. Where a slide needs context like a time or a tier, put it in the headline ("This week: high school friends"), not in an eyebrow above it.
 - The logo goes on the cover and the last slide only. The handle is small on every slide. No page counters.
