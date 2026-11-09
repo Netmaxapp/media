@@ -40,3 +40,9 @@ Music: Pleasant Porridge by Kevin MacLeod (incompetech.com), CC BY 4.0
 friends in different time zones be like. 14 hours apart means one of you is always asleep, so the hours you're both awake are the good ones. NET-MAX shows everyone you know with their local time. launches on iOS in january, waitlist link is in our Instagram bio #longdistancefriends #timezones #studyabroad #bestfriends
 
 Music: Aerosol of my Love by Kevin MacLeod (incompetech.com), CC BY 4.0
+
+## TikTok: 7-hours-ahead (emotional, video, not scheduled)
+
+texting someone 7 hours ahead of you: you send it at 11:42 PM in indianapolis and it lands at 6:42 AM in athens, right as they wake up. the reply comes while you're asleep. NET-MAX shows everyone you know with their local time, so you can catch them awake. launches on iOS in january, waitlist link is in our Instagram bio #longdistancefriends #timezones #studyabroad #friendsabroad
+
+Music: Late Night Radio by Kevin MacLeod (incompetech.com), CC BY 4.0
