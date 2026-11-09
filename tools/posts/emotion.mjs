@@ -30,8 +30,8 @@ const FRAME = { y: 430, w: 1080, h: 1350 };
 const segs = [
   { clip: 'mixkit-31413-man-in-bed-phone.mp4', from: 0.5, x: 330, len: 3.6 },
   { clip: 'mixkit-2164-dusk-ocean-palms.mp4', from: 4, x: 500, len: 2.4 },
-  { clip: 'mixkit-7271-waves-crashing.mp4', from: 2, x: 350, len: 2.4 },
-  { clip: 'mixkit-7491-sunrise-over-ocean.mp4', from: 3, x: 410, len: 3.6 },
+  { clip: 'mixkit-2091-ocean-foaming-waves.mp4', from: 2, x: 350, len: 2.4 },
+  { clip: 'mixkit-44482-waves-arriving-at-beach.mp4', from: 2, x: 350, len: 3.6 },
 ];
 const END = 2.8;                                       // end card
 const DUR = segs.reduce((a, s) => a + s.len, 0) + END;  // 14.8 s

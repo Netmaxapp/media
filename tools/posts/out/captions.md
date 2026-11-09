@@ -70,3 +70,21 @@ NET-MAX shows everyone you know with their local time. It launches on iOS in Jan
 #longdistancefriends #timezones #studyabroad #bestfriends
 
 Music: Aerosol of my Love by Kevin MacLeod (incompetech.com), CC BY 4.0
+
+## Instagram Reel: 7pm-in-new-york (replaces NetMax #2)
+
+It's 7 PM in New York, midnight in London and already 9 AM tomorrow in Tokyo.
+
+Three friends, one moment, three different nows. Text the wrong one and it sits unread until they wake up.
+
+NET-MAX shows everyone you know with their local time, so you can see who's awake before you hit send. Saved on your phone, not our servers. It launches on iOS in January. Waitlist link in our bio.
+
+#timezones #studyabroad #longdistancefriends #internationalstudents
+
+Music: Screen Saver by Kevin MacLeod (incompetech.com), CC BY 4.0
+
+## TikTok: 7pm-in-new-york (replaces NetMax #2)
+
+it's 7 pm in new york, midnight in london and already tomorrow in tokyo. see who's awake before you text. NET-MAX launches on iOS in january, waitlist link is in our Instagram bio #timezones #studyabroad #longdistancefriends #internationalstudents
+
+Music: Screen Saver by Kevin MacLeod (incompetech.com), CC BY 4.0
