@@ -84,6 +84,7 @@ These apply to everything: slides, videos, captions, stories, replies and alt te
 - **No pop on everything.** Use cut, fade, wipe, or (once per video) rise. At most 3 kinds of entrance animation per video. No scale, bounce, shake or zoom punch.
 - **End card** for about 3 s with the one ask. Match it to the first frame so the video loops.
 - **Film it if you can.** Generate only places you can't film, and label it as AI-generated.
+- **Stock footage:** check the licence on every clip's own page before using it. From Mixkit, use only clips under the Stock Video Free License, never the Restricted one. When one person stands for "me" across beats, use the same actor in every beat (pick clips from one shoot). Don't reuse the same actor across different videos.
 - **Audio:** use the platform's licensed library or our own music. Never use an unlicensed track.
 - For a script, write the hook line, then the beats with their on-screen text and timing, then the end card. Exact specs are in `references/video-style.md`. In this repo, motion videos come from `node tools/videos/render.mjs`, which checks the moves and styles.
 
