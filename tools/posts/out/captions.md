@@ -27,6 +27,10 @@ NET-MAX puts each friend's local time next to their name, so the night before th
 
 how to call a friend in tokyo from indianapolis without waking them up. tokyo is 14 hours ahead, so 6 to 11 PM your time is 8 AM to 1 PM their next day. mornings work too: 8 to 9 AM here is 10 to 11 PM there. NET-MAX launches on iOS in january, waitlist link is in our Instagram bio #timezones #studyabroadjapan #longdistancefriends #internationalstudents
 
+Music: Space Jazz by Kevin MacLeod (incompetech.com), CC BY 4.0
+
 ## TikTok: madrid-birthday-text (video)
 
 texting a friend abroad on their birthday: in madrid it starts at 6 PM the night before, indianapolis time. busy at 6? schedule it in messages with send later. NET-MAX launches on iOS in january, waitlist link is in our Instagram bio #studyabroadspain #longdistancefriends #timezones #birthdaytexts
+
+Music: Pleasant Porridge by Kevin MacLeod (incompetech.com), CC BY 4.0

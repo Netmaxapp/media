@@ -14,7 +14,6 @@ const { chromium } = createRequire(import.meta.url)('playwright');
 const here = path.dirname(fileURLToPath(import.meta.url));
 const fonts = pathToFileURL(path.join(here, '../carousels/fonts/')).href;
 const timeline = pathToFileURL(path.join(here, '../videos/timeline.js')).href;
-const MUSIC = path.join(here, '../videos/audio/music-bed.m4a');
 const out = path.join(here, 'out');
 const work = path.join(process.env.BUILD_DIR || '/tmp', 'netmax-tiktok');
 const FPS = 30, DUR = 15;
@@ -123,8 +122,9 @@ ${endCard('Know when their birthday starts', 'h')}
 </div></div><script src="${timeline}"></script></body></html>`;
 
 const videos = [
-  { slug: 'tokyo-call-window', html: tokyo },
-  { slug: 'madrid-birthday-text', html: madrid },
+  // Music: Kevin MacLeod (incompetech.com), CC BY 4.0. Credit goes in each caption (audio/CREDITS.md).
+  { slug: 'tokyo-call-window', html: tokyo, music: 'Space_Jazz.mp3', from: 30 },
+  { slug: 'madrid-birthday-text', html: madrid, music: 'Pleasant_Porridge.mp3', from: 20 },
 ];
 
 // Rule 5: at most 3 kinds of entrance move, rise at most once, no pop.
@@ -165,9 +165,9 @@ for (const v of videos) {
     await page.screenshot({ path: path.join(dir, `f${String(i).padStart(4, '0')}.jpg`), type: 'jpeg', quality: 94 });
   }
   const file = path.join(out, `tiktok-${v.slug}.mp4`);
-  execFileSync('ffmpeg', ['-v', 'error', '-y', '-framerate', String(FPS), '-i', path.join(dir, 'f%04d.jpg'), '-i', MUSIC,
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-framerate', String(FPS), '-i', path.join(dir, 'f%04d.jpg'), '-ss', String(v.from), '-i', path.join(here, 'audio', v.music),
     '-map', '0:v', '-map', '1:a', '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', '-profile:v', 'high',
-    '-r', String(FPS), '-af', `volume=0.35,afade=t=out:st=${DUR - 0.8}:d=0.8`, '-c:a', 'aac', '-b:a', '192k', '-t', String(DUR),
+    '-r', String(FPS), '-af', `loudnorm=I=-16:TP=-1.5:LRA=11,afade=t=in:st=0:d=0.3,afade=t=out:st=${DUR - 1.2}:d=1.2`, '-c:a', 'aac', '-b:a', '192k', '-t', String(DUR),
     '-movflags', '+faststart', file]);
   console.log(`rendered ${path.relative(process.cwd(), file)}`);
 }
