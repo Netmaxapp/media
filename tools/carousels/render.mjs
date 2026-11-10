@@ -20,8 +20,8 @@ const outRoot = args.out ? path.resolve(args.out) : repo;
 const buildDir = path.join(process.env.BUILD_DIR || '/tmp', 'netmax-build');
 fs.mkdirSync(buildDir, { recursive: true });
 
-export const HANDLE = { ig: '@networkingmaxxing', tt: '@netmaxapp' };
-export const CTA = { ig: 'Waitlist: link in bio', tt: 'Waitlist: link in our Instagram bio, @networkingmaxxing' };
+export const HANDLE = { ig: '@networkingmaxxing', tt: '@networkingmaxxing' };
+export const CTA = { ig: 'Waitlist: link in bio', tt: 'Waitlist: tally.so/r/DqqyzZ' };
 
 // ---------- 1. every number in the copy must match the tz math ----------
 checkCopy();

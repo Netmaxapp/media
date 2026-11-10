@@ -310,7 +310,7 @@ NET-MAX launches in January. Waitlist link in bio.
 // ============================================================================
 const c4 = (() => {
   const texts = [
-    { h: 'The photo', b: 'Send it when something reminds you of them. The question at the end gives them something to answer.', t: [{ stamp: 'Today **7:02 PM**' }, { photo: 'your photo', text: 'this made me think of you. how’s denver treating you?' }, { receipt: 'Delivered' }] },
+    { h: 'The reminder', b: 'Send it when something reminds you of them. Add the photo if you took one. The question at the end gives them something to answer.', t: [{ stamp: 'Today **7:02 PM**' }, { text: 'walked past that taco truck we found in may and thought of you. how’s denver treating you?' }, { receipt: 'Delivered' }] },
     { h: 'The callback', b: 'Bring back something they told you about. It shows you were listening back then.', t: [{ stamp: 'Tue **9:14 PM**' }, { text: 'random, but i finally tried the hot sauce you wouldn’t stop talking about. you were right' }, { receipt: 'Delivered' }] },
     { h: 'The maybe-visit', b: 'Only send this one if the trip could really happen.', t: [{ stamp: 'Sat **11:40 AM**' }, { text: 'are you still in chicago? i might be passing through in march' }, { receipt: 'Delivered' }] },
     { h: 'The congrats', b: 'If they posted news, reply with a question they can answer in one text.', t: [{ stamp: 'Today **12:31 PM**' }, { text: 'congrats on the new job!! what’s the best part so far?' }, { receipt: 'Delivered' }] },
@@ -627,13 +627,13 @@ const c8 = (() => {
         alt: 'Calendar from Sunday November 15 to Saturday November 28. Today is the 15th. Wednesday the 25th is the night before. Thursday the 26th is Thanksgiving.',
       },
       {
-        h: 'This week: high school friends',
+        h: 'Thanksgiving week: high school friends',
         body: 'Everyone’s home the same few days. Start the group text now and claim a night before the week fills up.',
         visual: C.thread([{ text: 'who’s home wednesday the 25th? pizza at the usual place?' }]),
         alt: 'Group text: “who’s home wednesday the 25th? pizza at the usual place?”',
       },
       {
-        h: 'This week: the friend who moved away',
+        h: 'Thanksgiving week: the friend who moved away',
         body: 'Ask if they’re home for break too. If your days overlap, put one on the calendar now. If they don’t, set up a call.',
         visual: C.thread([{ text: 'you home for thanksgiving? i’m back the 24th through the 29th' }]),
         alt: 'Message: “you home for thanksgiving? i’m back the 24th through the 29th”',

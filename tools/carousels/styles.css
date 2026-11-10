@@ -481,3 +481,16 @@ h1 em, h2 em { font-style: normal; color: var(--green); }
 h1 em, h2 em, .vh1 em, [class*="theme-"] h1 em, [class*="theme-"] h2 em, [class*="theme-"] .vh1 em {
   color: inherit !important; background: none !important; padding: 0 !important; font-style: normal !important;
 }
+
+/* TikTok 9:16: bigger type, content centred in the frame (Nov 9 audience-panel fix: bottom 40% was empty) */
+.fmt-tt .safe { top: 230px; bottom: 400px; justify-content: center; gap: 0; }
+.fmt-tt .safe .row-top, .fmt-tt .safe .text, .fmt-tt .safe .visual, .fmt-tt .is-cover .text, .fmt-tt .is-cta .text { margin-top: 0 !important; margin-bottom: 0 !important; flex: 0 0 auto; }
+.fmt-tt .safe .visual { margin-top: 56px !important; }
+.fmt-tt .safe .row-top { margin-bottom: 40px !important; }
+.fmt-tt h1 { font-size: 132px; } .fmt-tt h1.m { font-size: 118px; } .fmt-tt h1.s { font-size: 104px; }
+.fmt-tt h2 { font-size: 112px; } .fmt-tt h2.s { font-size: 96px; }
+.fmt-tt .body, .fmt-tt .body.l { font-size: 50px; line-height: 1.38; }
+.fmt-tt .bubble { font-size: 52px; } .fmt-tt .thread.hero .bubble { font-size: 58px; }
+.fmt-tt .msg { font-size: 40px; } .fmt-tt .label { font-size: 36px; }
+.fmt-tt .cta-line { font-size: 48px; font-weight: 700; }
+.fmt-tt .foot { position: absolute; bottom: -330px; left: 0; font-size: 32px; opacity: 0.9; }
