@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: audit-sloppy-caption
+expected_outcome: |
+  fixed.md holds a rewritten caption with every slop tell removed and no invented claims; changes.md lists the problems found.
